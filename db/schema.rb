@@ -180,7 +180,7 @@ ActiveRecord::Schema.define(version: 2018_05_04_150100) do
   create_table "friends", force: :cascade do |t|
     t.integer "friend_id"
     t.integer "user_id"
-    t.string "nick_name"
+    t.string "nickname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["friend_id"], name: "index_friends_on_friend_id"
@@ -202,7 +202,7 @@ ActiveRecord::Schema.define(version: 2018_05_04_150100) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
-    t.string "nick_name"
+    t.string "nickname"
     t.string "phone"
     t.string "avatar"
     t.integer "gender", default: 3
