@@ -1,0 +1,2 @@
+class ScenicSpot < ApplicationRecord
+end
