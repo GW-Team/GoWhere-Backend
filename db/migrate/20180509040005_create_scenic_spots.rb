@@ -7,10 +7,11 @@ class CreateScenicSpots < ActiveRecord::Migration[5.2]
       t.string :phone
       t.string :address
       t.string :OpenTime
-      t.double :lat
-      t.double :lng
+      t.decimal :lat
+      t.decimal :lng
       t.string :city
       t.text :TravelInfo
+
 
       t.timestamps
     end
