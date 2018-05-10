@@ -6,6 +6,9 @@ class ApiV1::UsersController < ApiController
     user = User.find_by_email(params['email'].downcase)
     if user.valid_password?(params['password']) then
       user.authentication_token = Devise.friendly_token()
+      user.authentication_token_time = Time.now() 
+      user.refresh_token = Devise.friendly_token()
+      user.refresh_token_time = Time.now()
       user.save()
       response.headers['Authorization'] = user.authentication_token
       message = 'Login success.'
