@@ -4,6 +4,11 @@ class ApiV1::UsersController < ApiController
   
   def login
     user = User.find_by_email(params['email'].downcase)
+
+    puts """
+    #{params}
+    """
+
     if user.valid_password?(params['password']) then
       user.authentication_token = Devise.friendly_token()
       user.authentication_token_time = Time.now() 
@@ -30,7 +35,9 @@ class ApiV1::UsersController < ApiController
   end
 
   def forgot_password
-    
+    user = User.find_by_email(params['email'].downcase)
+    User.reset_password(user)
+    render :json => { :message => "請至信箱收信" }, :status => 200
   end
 
   # ====================================================================================
