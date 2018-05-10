@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+
+  # Web Mode
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  # API Mode
+  scope :path => '/api/v1/', :module => "api_v1", :as => 'v1', :defaults => { :format => :json } do
+    resources :users do
+      collection do
+          post :login
+          post :registered
+          post :forgot_password
+      end
+    end
+  end
 end
