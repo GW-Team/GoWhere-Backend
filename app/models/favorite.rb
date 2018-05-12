@@ -1,4 +1,4 @@
 class Favorite < ApplicationRecord
   belongs_to :user
-  belongs_to :attraction
+  belongs_to :news_feed
 end
