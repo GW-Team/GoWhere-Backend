@@ -1,8 +1,8 @@
 class NewsFeed < ApplicationRecord
   belongs_to :user
 
-  has_many :news_feed_photos
-  has_many :news_feed_likes
-  has_many :news_feed_comments
-  has_many :favorites
+  has_many :news_feed_photos, dependent: :destroy
+  has_many :news_feed_likes, dependent: :destroy
+  has_many :news_feed_comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 end

@@ -13,5 +13,13 @@ Rails.application.routes.draw do
         post :refresh_token, to: "users#new_authentication_token"
       end
     end
+
+    resources :news_feeds, except: [:new, :edit] do
+      member do
+          post :upload_image
+      end
+      
+    end
+
   end
 end
