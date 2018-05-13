@@ -50,3 +50,4 @@ node_modules/
 Gemfile.lock
 db/schema.rb
 config/email.yml
+public/uploads/*

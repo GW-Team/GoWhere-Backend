@@ -18,6 +18,7 @@ class User < ApplicationRecord
   has_many :activity_participants
   has_many :activity_comments
 
+  mount_uploader :avatar, ImageUploader
 
 
 
