@@ -11,7 +11,7 @@ class ApiController < ActionController::Base
     end
 
     # 查詢 user 並判斷是否正確
-    @user = User.where(authentication_token: request.headers['Authorization'].split("Basic ")[1], id: params.require(:user_id))
+    @user = User.where(authentication_token: request.headers['Authorization'].split("Basic ")[1])
     if @user.length == 0
       return_msg({ message: "User not found or authorization token is error."}, 404)
       return

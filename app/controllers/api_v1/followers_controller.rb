@@ -8,7 +8,7 @@ class ApiV1::FollowersController < ApiController
     end
   end
 
-  def my_followers
+  def follow_whom
     begin
       forms = Follower.where(params.permit(:user_id))
       return_msg({result: true, forms: forms.map{|val| {id: val.id, user_id: val.follower_id}}}, 200)
@@ -17,7 +17,7 @@ class ApiV1::FollowersController < ApiController
     end
   end
 
-  def who_follows_me
+  def follow_me
     begin
       forms = Follower.where(follower_id: params['user_id'])
       return_msg({result: true, forms: forms.map{|val| {id: val.id, user_id: val.user_id}}}, 200)
