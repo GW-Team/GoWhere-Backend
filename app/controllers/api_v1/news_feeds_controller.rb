@@ -1,7 +1,13 @@
 class ApiV1::NewsFeedsController < ApiController
   
   def index
-    @user.follower_followers.all.map{|val| puts val.user_id}
+    begin
+      news_feed_users = @user.followers_follower.all.map{|val| val.user_id}.push(@user.id)
+      news_feeds = NewsFeed.where("user_id in (?)", news_feed_users).order(created_at: :desc)
+      return_msg({reslut: true, news_feeds: news_feeds}, 200)
+    rescue
+      return_msg({message: "Server Error"}, 500)
+    end
   end
 
   def show
@@ -11,27 +17,27 @@ class ApiV1::NewsFeedsController < ApiController
   def create
     begin
       news_feed = @user.news_feeds.create(news_feed_params)
-      render json: { message: "新增成功。", news_feed_id: news_feed.id }, status: 200
+      return_msg({ message: "新增成功。", news_feed_id: news_feed.id }, 200)
     rescue
-      render json: { message: "新增失敗，請確認是否有欄位未填。" }, status: 500
+      return_msg({ message: "新增失敗，請確認是否有欄位未填。" }, 400)
     end
   end
 
   def update
     begin
       @user.news_feeds.find(params.require(:id)).update(news_feed_params)
-      render json: { message: "修改成功。" }, status: 200
+      return_msg({ message: "修改成功。" }, 200)
     rescue
-      render json: { message: "修改失敗，請確認是否有欄位錯誤。" }, status: 500
+      return_msg({ message: "修改失敗，請確認是否有欄位錯誤。" }, 400)
     end
   end
 
   def destroy
     begin
       @user.news_feeds.find(params.require(:id)).destroy()
-      render json: { message: "刪除成功"}, status: 200
+      return_msg({ message: "刪除成功"}, 200)
     rescue
-      render json: { message: "刪除失敗" }, status: 500
+      return_msg({ message: "刪除失敗" }, 500)
     end
   end
 
@@ -41,9 +47,9 @@ class ApiV1::NewsFeedsController < ApiController
       for key in params.require(:key_list).split(',')
         res.push(@user.news_feeds.find(params[:id]).news_feed_photos.create(path: params.require(key)))
       end
-      render json: { message: "上傳成功。", imgs: res }, status: 200
+      return_msg({ message: "上傳成功。", imgs: res }, 200)
     rescue
-      render json: { message: "上傳失敗，請再重新上傳一次。" }, status: 500
+      return_msg({ message: "上傳失敗，請再重新上傳一次。" }, 500)
     end
   end
 
