@@ -9,6 +9,8 @@ gem 'digest'
 gem 'devise'
 # File Upload
 gem 'carrierwave', '~> 1.0'
+# Form build rapidly
+gem 'simple_form'
 # --------------------------------
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
