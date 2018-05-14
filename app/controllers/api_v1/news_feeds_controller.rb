@@ -1,4 +1,12 @@
 class ApiV1::NewsFeedsController < ApiController
+  
+  def index
+    @user.follower_followers.all.map{|val| puts val.user_id}
+  end
+
+  def show
+    
+  end
 
   def create
     begin
@@ -20,11 +28,10 @@ class ApiV1::NewsFeedsController < ApiController
 
   def destroy
     begin
-      del = @user.news_feeds.find(params.require(:id)).destroy()
+      @user.news_feeds.find(params.require(:id)).destroy()
       render json: { message: "刪除成功"}, status: 200
     rescue
       render json: { message: "刪除失敗" }, status: 500
-      del.errors.full_messages
     end
   end
 

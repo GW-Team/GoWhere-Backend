@@ -7,10 +7,14 @@ class User < ApplicationRecord
   has_many :news_feeds
   has_many :news_feed_likes
   has_many :news_feed_comments
-  has_many :friend_friends, :class_name => 'Friend', :foreign_key => 'friend_id'
-  has_many :friend_users, :class_name => 'Friend', :foreign_key => 'user_id'
-  has_many :friend_apply_form_applicants, :class_name => 'FriendApplyForm', :foreign_key => 'apply_id'
-  has_many :friend_apply_form_users, :class_name => 'FriendApplyForm', :foreign_key => 'user_id'
+  has_many :friend_friend, :class_name => 'Friend', :foreign_key => 'friend_id'
+  has_many :user_friend, :class_name => 'Friend', :foreign_key => 'user_id'
+  has_many :applicant_friend_apply_form, :class_name => 'FriendApplyForm', :foreign_key => 'apply_id'
+  has_many :user_friend_apply_form, :class_name => 'FriendApplyForm', :foreign_key => 'user_id'
+  has_many :user_follower, :class_name => 'Follower', :foreign_key => 'user_id'
+  has_many :follower_follower, :class_name => 'Follower', :foreign_key => 'follower_id'
+  has_many :user_follower_apply_form, :class_name => 'FollowerApplyForm', :foreign_key => 'user_id'
+  has_many :follower_follower_apply_form, :class_name => 'FollowerApplyForm', :foreign_key => 'follower_id'
   has_many :favorites
   has_many :chatroom_note_comments
   has_many :chatroom_messages
