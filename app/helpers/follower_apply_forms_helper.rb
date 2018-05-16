@@ -1,0 +1,2 @@
+module FollowerApplyFormsHelper
+end
