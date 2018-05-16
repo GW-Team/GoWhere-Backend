@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   # Web Mode
   devise_for :users
+  root "homes#index"
 
   # API Mode
   scope :path => '/api/v1/', :module => "api_v1", :as => 'v1', :defaults => { :format => :json } do
@@ -32,7 +33,7 @@ Rails.application.routes.draw do
           post :follow_whom
           post :follow_me
       end
-      
+
     end
 
   end
