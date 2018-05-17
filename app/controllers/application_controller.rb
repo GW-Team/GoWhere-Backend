@@ -5,6 +5,17 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  def find_follow_list
+    if action_name == "follow_whom"
+      @follow_whom_list = Follower.where(user_id: current_user.id)
+    elsif action_name == "follow_me"
+      @follow_me_list = Follower.where(follower_id: current_user.id)
+    else
+      @follow_whom_list = Follower.where(user_id: current_user.id)
+      @follow_me_list = Follower.where(follower_id: current_user.id)
+    end
+  end
+
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys:[ :email, :password, :passowrd_confirm, :gender, :phone, :nickname, :first_name, :last_name ])
