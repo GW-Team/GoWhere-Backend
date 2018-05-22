@@ -14,7 +14,7 @@
           <% if current_user.id != user.id %>
             <tr>
               <td><%= user.email %></td>
-              <td><%= button_to "追蹤", follower_apply_forms_path, method: :post %></td>
+              <td><%= follow_or_cancel(user.id) %></td>
             </tr>
           <% end %>
         <% end %>

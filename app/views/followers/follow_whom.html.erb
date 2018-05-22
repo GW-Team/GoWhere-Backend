@@ -3,17 +3,15 @@
   <table>
     <thead>
       <tr>
-        <td>ID</td>
         <td>Email</td>
       </tr>
       <tbody>
-        <tr>
-          <% @follow_whom_list.each do |follow_whom| %>
-            <td><%= follow_whom.follower_id %></td>
+        <% @follow_whom_list.each do |follow_whom| %>
+          <tr>
             <td><%= find_user(follow_whom.follower_id).email %></td>
-            <td><%= link_to "取消追蹤", follower_path(follow_whom.id), method: "delete" %></td>
-          <% end %>
-        </tr>
+            <td><%= button_to "取消追蹤", follower_path(follow_whom.id), method: "delete" %></td>
+          </tr>
+        <% end %>
       </tbody>
     </thead>
   </table>
