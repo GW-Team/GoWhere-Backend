@@ -1,8 +1,24 @@
 Rails.application.routes.draw do
 
-  # Web Mode
   devise_for :users
+  root "homes#index"
+  # ----------------------------
+  # Web Mode
+  resources :followers, only: [:destroy] do
+    collection do
+      get :follow_whom
+      get :follow_me
+    end
+  end
 
+  resources :follower_apply_forms, only: [:update, :destroy]
+
+  resources :news_feeds, except: [:new, :edit] do
+    member do
+        post :upload_image
+    end
+  end
+  # ----------------------------
   # API Mode
   scope :path => '/api/v1/', :module => "api_v1", :as => 'v1', :defaults => { :format => :json } do
     resources :users do
@@ -32,7 +48,7 @@ Rails.application.routes.draw do
           post :follow_whom
           post :follow_me
       end
-      
+
     end
 
   end

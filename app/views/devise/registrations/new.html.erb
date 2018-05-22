@@ -1,0 +1,16 @@
+<h2>Sign up</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :email,label: "電子信箱", required: true, autofocus: true %>
+  <%= f.input :password, label: "密碼", required: true, hint: ("(p.s. 密碼長度需大於等於 #{@minimum_password_length} 字元)" if @minimum_password_length) %>
+  <%= f.input :password_confirmation, label: "確認密碼", required: true %>
+  <%= f.input :gender, label: "性別", collection: [['male', '1'], ['female', '2'], ['not show', '3']]%>
+  <%= f.input :phone, label: "電話號碼" %>
+  <%= f.input :nickname, label: "暱稱" %>
+  <%= f.input :first_name, label: "姓(first_name)" %>
+  <%= f.input :last_name, label: "名(last_name)" %>
+  <%= f.button :submit, "註冊", data: { disable_with: "註冊中..." } %>
+<% end %>
+
+<%= render "devise/shared/links" %>
