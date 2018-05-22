@@ -1,0 +1,21 @@
+<h1>following...</h1>
+<div>
+  <table>
+    <thead>
+      <tr>
+        <td>ID</td>
+        <td>Email</td>
+      </tr>
+      <tbody>
+        <tr>
+          <% @follow_whom_list.each do |follow_whom| %>
+            <td><%= follow_whom.follower_id %></td>
+            <td><%= find_user(follow_whom.follower_id).email %></td>
+            <td><%= link_to "取消追蹤", follower_path(follow_whom.id), method: "delete" %></td>
+          <% end %>
+        </tr>
+      </tbody>
+    </thead>
+  </table>
+  <%= link_to "回上一頁", :back %>
+</div>

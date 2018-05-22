@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   # Web Mode
   resources :followers, only: [:destroy] do
     collection do
-        post :follow_whom
-        post :follow_me
+      get :follow_whom
+      get :follow_me
     end
   end
 
