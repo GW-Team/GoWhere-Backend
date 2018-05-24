@@ -3,14 +3,12 @@
   <table>
     <thead>
       <tr>
-        <td>ID</td>
-        <td>Email</td>
+        <td>使用者</td>
       </tr>
       <tbody>
         <% @follow_me_list.each do |follow_me| %>
           <tr>
-            <td><%= follow_me.user_id %></td>
-            <td><%= find_user(follow_me.user_id).email %></td>
+            <td><%= find_fullname(follow_me.user_id) %></td>
           </tr>
         <% end %>
       </tbody>

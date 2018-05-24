@@ -11,8 +11,9 @@
 
   <body>
     <% if user_signed_in? %>
-      <%= link_to "登出", destroy_user_session_path, method: :delete %>
-      <%= link_to "修改 #{current_user.email}資料", edit_user_registration_path %>
+      <%= render 'shared/navbar' %>
+      <%= render 'shared/left' %>
+      <%= render 'shared/right' %>
     <% end %>
     <%= yield %>
   </body>

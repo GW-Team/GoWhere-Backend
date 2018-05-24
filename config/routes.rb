@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  root "homes#index"
+  root "news_feeds#index"
   # ----------------------------
   # Web Mode
   resources :followers, only: [:destroy] do
