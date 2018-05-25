@@ -1,0 +1,20 @@
+<h1>誰想追蹤我...</h1>
+<div>
+  <table>
+    <thead>
+      <tr>
+        <td>使用者</td>
+      </tr>
+      <tbody>
+        <% @follow_me_list.each do |follow_me| %>
+          <tr>
+            <td><%= find_fullname(follow_me.user_id) %></td>
+            <td><%= button_to "接受", follower_apply_form_path(follow_me.user_id), method: :put %></td>
+            <td><%= button_to "拒絕", follower_apply_form_path(follow_me.user_id), method: :delete %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </thead>
+  </table>
+  <%= link_to "回上一頁", :back %>
+</div>

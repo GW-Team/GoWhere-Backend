@@ -10,17 +10,18 @@
 
   <%= f.input :password, label: "密碼", autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
   <%= f.input :password_confirmation, label: "密碼確認", required: false %>
-  <%= f.input :gender, label: "性別", collection: [['male', '1'], ['female', '2'], ['not show', '3']]%>
+  <%= f.input :gender, label: "性別", collection: [['男生', '1'], ['女生', '2'], ['不顯示', '3']]%>
   <%= f.input :phone, label: "電話號碼" %>
   <%= f.input :nickname, label: "暱稱" %>
   <%= f.input :first_name, label: "姓(first_name)" %>
   <%= f.input :last_name, label: "名(last_name)" %>
+  <%= f.input :is_public, label: "設為公開帳號", collection: [['公開', 'true'], ['不公開', 'false']] %>
   <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
   <%= f.button :submit, "更新", data: { disable_with: "更新中..." } %>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3>刪除帳號！</h3>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>不愉快嗎？ <%= link_to "立即刪除帳號", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to "回上一頁", :back %>

@@ -1,0 +1,20 @@
+<h1>我想追蹤誰，申請中...</h1>
+<div>
+  <table>
+    <thead>
+      <td>
+        <tr>id</tr>
+        <tr>使用者</tr>
+      </td>
+      <tbody>
+        <% @follow_whom_list.each do |follow_whom| %>
+          <tr>
+            <td><%= follow_whom.id %></td>
+            <td><%= find_fullname(follow_whom.follower_id) %></td>
+            <td><%= button_to "取消申請", follower_apply_form_path(follow_whom.id), method: :delete %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </thead>
+  </table>
+</div>
