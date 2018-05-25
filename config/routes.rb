@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  root "homes#index"
+  root "news_feeds#index"
   # ----------------------------
   # Web Mode
   resources :followers, only: [:destroy] do
@@ -11,7 +11,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :follower_apply_forms, only: [:update, :destroy]
+  resources :follower_apply_forms, only: [:update, :destroy] do
+    collection do
+      get :i_want_to_follow_whom
+      get :who_wants_to_follow_me
+    end
+  end
 
   resources :news_feeds, except: [:new, :edit] do
     member do

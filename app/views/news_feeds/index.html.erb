@@ -1,26 +1,30 @@
 <div>
   <%= link_to "#{@follow_me_list.size} 位粉絲", follow_me_followers_path %>
   <%= link_to "正在追蹤 #{@follow_whom_list.size} 人", follow_whom_followers_path %>
-  <hr>
+  <%= link_to "我想追蹤誰", i_want_to_follow_whom_follower_apply_forms_path %>
+  <%= link_to "誰想追蹤我", who_wants_to_follow_me_follower_apply_forms_path %>
 
-  <table>
-    <thead>
-      <tr>
-        <td>使用者</td>
-        <td>追蹤功能</td>
-      </tr>
-      <tbody>
-        <% @users.each do |user| %>
-          <% if current_user.id != user.id %>
-            <tr>
-              <td><%= user.email %></td>
-              <td><%= follow_or_cancel(user.id) %></td>
-            </tr>
+<br/>
+  <% if @users %>
+    <table>
+      <thead>
+        <tr>
+          <td>使用者</td>
+          <td>追蹤功能</td>
+        </tr>
+        <tbody>
+          <% @users.each do |user| %>
+            <% if current_user.id != user.id %>
+              <tr>
+                <td><%= find_fullname(user.id) %></td>
+                <td><%= follow_or_cancel(user.id) %></td>
+              </tr>
+            <% end %>
           <% end %>
-        <% end %>
-      </tbody>
-    </thead>
-  </table>
+        </tbody>
+      </thead>
+    </table>
+  <% end %>
 </div>
 
 <% if flash[:notice] %>
