@@ -1,26 +1,27 @@
 class FollowerApplyFormsController < ApplicationController
   before_action :find_follow_apply_list, only: [:i_want_to_follow_whom, :who_wants_to_follow_me]
-  def update
-    if form ||=FollowerApplyForm.find_by(follower_id: current_user.id, user_id: params[:id])
-      current_user.followers_follower.create! user_id: params[:id]
-      form.destroy
-      redirect_to root_path, notice: "成功接受！"
+  
+  def create
+    if User.find_by(id: params[:id]).is_public
+      current_user.users_follower.create! follower_id: params[:id]
     else
-      if User.find_by(id: params[:id]).is_public
-        current_user.users_follower.create! follower_id: params[:id]
-      else
-        follower_apply
-      end
-      redirect_to root_path
+      follower_apply
     end
+    redirect_back fallback_location: root_path
+  end
+
+  def update
+    current_user.followers_follower.create! user_id: params[:id]
+    form.destroy
+    redirect_back fallback_location: root_path, notice: "成功接受！"
   end
 
   def destroy
     if form ||=FollowerApplyForm.find_by(follower_id: current_user.id, user_id: params[:id])
-      redirect_to root_path, notice: "成功拒絕！" if form.destroy
+      redirect_back fallback_location: root_path, notice: "成功拒絕！" if form.destroy
     else
       @follow_whom = FollowerApplyForm.find_by(id: params[:id])
-      redirect_to root_path, notice: "成功取消申請！" if @follow_whom.destroy
+      redirect_back fallback_location: root_path, notice: "成功取消申請！" if @follow_whom.destroy
     end
   end
 

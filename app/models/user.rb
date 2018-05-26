@@ -34,4 +34,10 @@ class User < ApplicationRecord
     user.update(password: key)
     UserMailer.send_forgot_password_email(user.email, key).deliver_now!
   end
+
+  def display_name
+    return nickname if nickname.present? 
+    return "#{first_name} #{last_name}" if first_name.present? && last_name.present?
+    email.split('@').first
+  end
 end

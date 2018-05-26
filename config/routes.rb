@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   root "news_feeds#index"
   # ----------------------------
   # Web Mode
+  resources :users, only: [:index, :show]
+  resources :friend_apply_forms, only: [:index, :create, :destroy]
+  resources :friends, only: [:create, :destroy]
+
   resources :followers, only: [:destroy] do
     collection do
       get :follow_whom
@@ -11,7 +15,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :follower_apply_forms, only: [:update, :destroy] do
+  resources :follower_apply_forms, only: [:create, :update, :destroy] do
     collection do
       get :i_want_to_follow_whom
       get :who_wants_to_follow_me

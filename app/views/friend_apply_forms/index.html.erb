@@ -1,0 +1,15 @@
+<table class="table">
+  <tr>
+    <th>名稱</th>
+    <th></th>
+  </tr>
+  <% current_user.applicants_friend_apply_form.each do |form| %>
+  <tr>
+    <td><%= form.user.display_name %></td>
+    <td>
+      <%= button_to  "同意", friends_path, params: {id: form.user_id, form_id: form.id}, method: :post %>
+      <%= button_to  "移除", friend_apply_form_path(form.id), method: :delete %>
+    </td>
+  </tr>
+  <% end %>
+</table>

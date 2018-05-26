@@ -1,8 +1,7 @@
 class FollowersController < ApplicationController
-  before_action :find_follow_list , only: [:follow_whom, :follow_me]
+  before_action :find_follow_list
 
   def destroy
-    @follow_whom = Follower.find_by(id: params[:id])
-    redirect_to news_feeds_path if @follow_whom.destroy
+    redirect_to root_path if Follower.find_by(id: params[:id]).destroy
   end
 end

@@ -1,17 +1,20 @@
 <% if user_signed_in? %>
   <div>
-    <h4>您好 <%= find_fullname(current_user.id) %>，今天爽嗎？</h4>
+    <h4>您好 <%= current_user.display_name %>，今天爽嗎？</h4>
     <%= link_to "首頁", root_path %>
-    <%= link_to "個人頁面", news_feeds_path %>
+    <%= link_to "個人頁面", user_path(current_user) %>
     <%= link_to "聊天室", "#" %>
     <%= link_to "熱門景點", "#" %>
     <%= link_to "修改個人資料", edit_user_registration_path %>
     <%= link_to "登出", destroy_user_session_path, method: :delete %>
   </div>
 
-  <%= form_tag news_feeds_path, method: "get" do %>
+  <%= form_tag users_path, method: "get" do %>
       <%= text_field_tag :search, params[:search], placeholder: "搜尋使用者..." %>
       <%= submit_tag "搜尋", name: nil %>
   <% end %>
+<% else %>
+  <%= link_to  "登入", new_user_session_path %>
+  <%= link_to  "註冊", new_user_registration_path %>
 <% end %>
 <hr/>

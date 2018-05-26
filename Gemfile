@@ -11,6 +11,9 @@ gem 'devise'
 gem 'carrierwave', '~> 1.0'
 # Form build rapidly
 gem 'simple_form'
+# Bootstrap 4
+gem 'materialize-sass', '~> 1.0.0.rc1'
+gem 'jquery-rails'
 # --------------------------------
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

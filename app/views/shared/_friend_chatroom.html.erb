@@ -1,0 +1,11 @@
+<ul>
+  <% friends.each do |friend| %>
+    <% friend.chatroom_groups.map{|group| group if group.user_id != current_user.id}.compact.each do |group| %>
+      <li>
+          #<%= group.id %>
+          <%= group.user.display_name  %>
+          <%= button_to  "刪除", friend_path(group.user.id), method: :delete, params: {chatroom_id: friend.id} %>
+      </li>      
+    <% end %>
+  <% end %>
+</ul>

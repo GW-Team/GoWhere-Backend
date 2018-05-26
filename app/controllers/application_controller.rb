@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
-  #User http auth
-  protect_from_forgery with: :exception
+  # #User http auth
+  # protect_from_forgery with: :exception
   # 使用者強制登入後動作
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
