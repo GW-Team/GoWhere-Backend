@@ -9,7 +9,7 @@
         <% @follow_whom_list.each do |follow_whom| %>
           <tr>
             <td><%= find_fullname(follow_whom.follower_id) %></td>
-            <td><%= button_to "取消追蹤", follower_path(follow_whom.id), method: "delete" %></td>
+            <td><%= button_to "取消追蹤", follower_path(follow_whom.id), method: :delete %></td>
           </tr>
         <% end %>
       </tbody>
