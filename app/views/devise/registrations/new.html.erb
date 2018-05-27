@@ -5,7 +5,7 @@
   <%= f.input :email,label: "電子信箱", required: true, autofocus: true %>
   <%= f.input :password, label: "密碼", required: true, hint: ("(p.s. 密碼長度需大於等於 #{@minimum_password_length} 字元)" if @minimum_password_length) %>
   <%= f.input :password_confirmation, label: "確認密碼", required: true %>
-  <%= f.input :gender, label: "性別", collection: [['male', '1'], ['female', '2'], ['not show', '3']]%>
+  <%= f.input :gender, label: "性別", collection: [['男生', 1], ['女生', 2], ['不顯示', 3]], include_blank: "Please select" %>
   <%= f.input :phone, label: "電話號碼" %>
   <%= f.input :nickname, label: "暱稱" %>
   <%= f.input :first_name, label: "姓(first_name)" %>
