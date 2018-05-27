@@ -1,0 +1,17 @@
+<table>
+    <tr>
+      <th>使用者</th>
+      <th>追蹤功能</th>
+    </tr>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= find_fullname(user.id) %></td>
+        <% if current_user.id != user.id %>
+          <td>
+            <%= friend_or_cancel(user.id) %> 
+            <%= follow_or_cancel(user.id) %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+</table>
