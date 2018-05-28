@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
 
-  devise_for :users
   root "news_feeds#index"
   # ----------------------------
   # Web Mode
+  devise_for :users, controllers: { registrations: "registrations" }
   resources :users, only: [:index, :show]
   resources :friend_apply_forms, only: [:index, :create, :destroy]
   resources :friends, only: [:create, :destroy]
+  resources :chatrooms, only: [:show]
 
   resources :followers, only: [:destroy] do
     collection do
@@ -61,4 +62,7 @@ Rails.application.routes.draw do
     end
 
   end
+
+  
+  mount ActionCable.server => '/cable'
 end

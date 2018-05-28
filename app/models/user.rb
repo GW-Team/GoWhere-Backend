@@ -25,8 +25,6 @@ class User < ApplicationRecord
   mount_uploader :avatar, ImageUploader
 
 
-
-
   def self.reset_password(user)
     md5 = Digest::MD5.new
     md5 << user.email + Time.now().to_s + Devise.friendly_token()

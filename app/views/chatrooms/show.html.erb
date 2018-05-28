@@ -1,0 +1,22 @@
+<h1>#<%= @chatroom.id %></h1>
+
+
+
+<div id="messages" data-chatroom-id= "<%= @chatroom.id %>" user= "<%= current_user.identifier %>">
+  <div>
+    <% if @chatroom.chatroom_messages.length > 0 %>
+      <% @chatroom.chatroom_messages.each do |msg| %>
+      <p>
+          <span><%= msg.user.display_name %> at <%= msg.timestamp %> says:</span><br>
+          <%= msg.content %>
+        </p>  
+      <% end %>
+    <% else %>
+      No messages
+    <% end %>
+  </div>
+</div>
+
+<%= form_tag current_user, method: "post", id: "new_message" do %>
+  <%= text_field_tag :content, params[:content], id: "message_body" %>
+<% end %>

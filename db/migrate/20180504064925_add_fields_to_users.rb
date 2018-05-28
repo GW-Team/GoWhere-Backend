@@ -11,6 +11,9 @@ class AddFieldsToUsers < ActiveRecord::Migration[5.2]
     add_column :users, :device_token, :string
     add_column :users, :is_public, :boolean, default: true
     
+    add_column :users, :identifier, :string
+    add_index :users, :identifier, :unique => true
+    
     add_column :users, :authentication_token, :string
     add_column :users, :authentication_token_time, :datetime
     add_index :users, :authentication_token, :unique => true

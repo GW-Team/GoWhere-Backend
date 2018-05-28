@@ -1,7 +1,6 @@
 class ApiV1::UsersController < ApiController
   skip_before_action :authenticate_user_from_token!, only: [:login, :registered, :forgot_password, :new_authentication_token]
   
-  
   def login
     user = User.find_by_email(params['email'].downcase)
     if user.valid_password?(params['password']) then
