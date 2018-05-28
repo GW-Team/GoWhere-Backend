@@ -1,3 +1,31 @@
+<div>
+  <h5>撰寫貼文：</h5>
+  <%= render 'shared/news_feed', news_feed: @news_feed %>
+  <br/>
+  <hr/>
 
-
-
+  <% @news_feeds.each do |news_feed| %>
+    <div class="row">
+      <div class="col s12 m7">
+        <div class="card">
+          <div class="card-image">
+            <img src="https://materializecss.com/images/sample-1.jpg">
+            <span class="card-title">create at:<%= news_feed.created_at %></span>
+          </div>
+          <div class="card-content">
+            <p><%= news_feed.description %></p>
+          </div>
+          <div class="card-action">
+            <div class="row">
+              <%= link_to "讚", "#" %>
+              <%= link_to "留言", "#" %>
+              <%= link_to "座標", "#" %>
+              <%= link_to "修改文章", edit_news_feed_path(news_feed.id) %>
+              <%= link_to "刪除文章", news_feed_path(news_feed.id), method: :delete, data: {confirm: "確定要刪除？"} %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

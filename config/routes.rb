@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :news_feeds, except: [:new, :edit] do
+  resources :news_feeds, except: [:new] do
     member do
         post :upload_image
     end
@@ -63,6 +63,6 @@ Rails.application.routes.draw do
 
   end
 
-  
+
   mount ActionCable.server => '/cable'
 end
