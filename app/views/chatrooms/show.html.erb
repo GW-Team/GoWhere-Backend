@@ -27,4 +27,5 @@
 
 <%= form_tag current_user, method: "post", id: "new_message" do %>
   <%= text_field_tag :content, params[:content], id: "message_body" %>
+  <%= submit_tag "送出" %>
 <% end %>

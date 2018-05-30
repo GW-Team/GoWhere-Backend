@@ -14,4 +14,20 @@ module ApplicationHelper
     @groups  = chatrooms.map{|chatroom| chatroom if chatroom.is_group}.compact
     @friends = chatrooms.map{|chatroom| chatroom unless chatroom.is_group}.compact
   end
+
+  def user_avatar(user)
+    if user.avatar.file.nil?
+      "default_avatar.png"
+    else
+      user.avatar.url
+    end
+  end
+
+  def chatroom_avatar(chatroom)
+    if chatroom.picture.file.nil?
+      "default_group.png"
+    else
+      chatroom.picture.url
+    end
+  end
 end
