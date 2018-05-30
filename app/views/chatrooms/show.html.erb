@@ -1,4 +1,15 @@
-<h1>#<%= @chatroom.id %></h1>
+<h1>
+  <% if @chatroom.is_group %>
+    <%= @chatroom.name %>
+  <% else %>
+    <%= get_friend(@chatroom).first.user.display_name %>
+  <% end %>
+</h1>
+<% if @chatroom.is_group %>
+  <%= link_to  "群組管理", edit_chatroom_path(@chatroom) %>
+  <%= link_to  "成員管理", chatroom_chatroom_groups_path(@chatroom) %>
+<% end %>
+
 
 
 
@@ -6,10 +17,7 @@
   <div>
     <% if @chatroom.chatroom_messages.length > 0 %>
       <% @chatroom.chatroom_messages.each do |msg| %>
-      <p>
-          <span><%= msg.user.display_name %> at <%= msg.timestamp %> says:</span><br>
-          <%= msg.content %>
-        </p>  
+        <%= render  "chatrooms/message", message: msg %>
       <% end %>
     <% else %>
       No messages

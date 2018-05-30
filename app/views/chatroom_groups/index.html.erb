@@ -1,0 +1,36 @@
+<h2>成員管理</h2>
+<%= link_to  "上一頁", :back %>
+
+<% if @friends.present? %>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th></th>
+    </tr>
+    <% @friends.each do |friend| %>
+    <tr>
+      <td><%= friend.friend.list_name %></td>
+      <td>
+        <%= button_to  "新增", chatroom_chatroom_groups_path(@chatroom), params: {user_id: friend.friend_id} %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+<% end %>
+
+<hr>
+<h3>Member List</h3>
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+  </tr>
+  <% @chatroom.chatroom_groups.each do |group| %>
+    <tr>
+      <td><%= group.user.list_name %></td>
+      <td>
+        <%= render  "quit_button", group: group %>
+      </td>
+    </tr>
+  <% end %>
+</table>

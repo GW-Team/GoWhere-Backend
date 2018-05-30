@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'chatroom_groups/index'
+  get 'chatroom_groups/create'
   root "news_feeds#index"
   # ----------------------------
   # Web Mode
@@ -7,7 +9,9 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
   resources :friend_apply_forms, only: [:index, :create, :destroy]
   resources :friends, only: [:create, :destroy]
-  resources :chatrooms, only: [:show]
+  resources :chatrooms, only: [:new, :create, :edit, :update, :show] do
+    resources :chatroom_groups, only: [:index, :create, :destroy], shallow: true
+  end
 
   resources :followers, only: [:destroy] do
     collection do
