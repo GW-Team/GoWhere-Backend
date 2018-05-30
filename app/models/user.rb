@@ -21,8 +21,10 @@ class User < ApplicationRecord
   has_many :chatroom_groups
   has_many :activity_participants
   has_many :activity_comments
-
+  
   mount_uploader :avatar, ImageUploader
+
+  validates :first_name, :last_name, presence: true
 
 
   def self.reset_password(user)
@@ -37,5 +39,9 @@ class User < ApplicationRecord
     return nickname if nickname.present? 
     return "#{first_name} #{last_name}" if first_name.present? && last_name.present?
     email.split('@').first
+  end
+
+  def list_name
+    (nickname.present?) ? "#{first_name} #{last_name} (#{nickname})" : "#{first_name} #{last_name}"
   end
 end
