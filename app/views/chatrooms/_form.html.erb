@@ -1,0 +1,7 @@
+<%= link_to  "上一頁", redirect_to %>
+<hr>
+<%= simple_form_for chatroom do |f| %>
+  <%= f.input :name, label: "群組名稱" %>
+  <%= f.input :picture, label: "群組圖片" %>
+  <%= f.submit "送出" %>
+<% end %>

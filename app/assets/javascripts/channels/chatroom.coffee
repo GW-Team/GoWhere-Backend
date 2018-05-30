@@ -25,7 +25,7 @@ jQuery(document).on 'turbolinks:load', ->
     $('#new_message').submit (e) ->
       $this = $(this)
       textarea = $this.find('#message_body')
-      if $.trim(textarea.val()).length > 1
+      if $.trim(textarea.val()).length > 0
         App.chatroom.chat textarea.val(), messages.data('chatroom-id'), 1, messages.attr('user')
         textarea.val('')
       e.preventDefault()

@@ -7,11 +7,12 @@
 <br>
 <div>
   群組
+  <%= link_to  "新增", new_chatroom_path %>
   <hr>
   <% unless @groups.size > 0 %>
-  No Group
+    No Group
   <% else %>
-  <%= @groups.length %>
+    <%= render  "shared/chatroom", chatrooms: @groups %>
   <% end %>
 </div>
 <br>
@@ -21,6 +22,6 @@
   <% unless @friends.size > 0 %>
     No Friends
   <% else %>
-    <%= render  "shared/friend_chatroom", friends: @friends %>
+    <%= render  "shared/chatroom", chatrooms: @friends %>
   <% end %>
 </div>

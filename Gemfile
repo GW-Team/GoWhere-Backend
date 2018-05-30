@@ -14,6 +14,8 @@ gem 'simple_form'
 # Bootstrap 4
 gem 'materialize-sass', '~> 1.0.0.rc1'
 gem 'jquery-rails'
+# auth manage
+gem 'cancancan', '~> 2.2'
 # --------------------------------
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
