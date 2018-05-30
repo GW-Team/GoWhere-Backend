@@ -1,6 +1,5 @@
 <div>
-  <h3>撰寫貼文：</h3>
-  <%= render 'shared/news_feed', news_feed: @news_feed %>
+  <%= render 'form', news_feed: @news_feed %>
   <br/>
   <hr/>
 
@@ -10,7 +9,7 @@
         <div class="card">
           <div class="card-image">
             <img src="https://materializecss.com/images/sample-1.jpg">
-            <span class="card-title">create at:<%= news_feed.created_at %></span>
+            <span class="card-title">create at:<%= news_feed.created_at.strftime('%Y-%m-%d %H:%M:%S') %></span>
           </div>
           <div class="card-content">
             <h5><%= news_feed.user.display_name %> 說：</h5>
