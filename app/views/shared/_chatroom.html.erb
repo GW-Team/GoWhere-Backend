@@ -1,6 +1,8 @@
 <ul>
   <% chatrooms.each do |chatroom| %>
     <% if chatroom.is_group %>
+      <%= image_tag chatroom_avatar(chatroom) %> 
+      <br>
       <li><%= link_to  "#{chatroom.name}", chatroom_path(chatroom) if chatroom.is_group%> </li>
     <% else %>
       <% get_friend(chatroom).each do |group| %>

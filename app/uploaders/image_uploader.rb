@@ -17,6 +17,8 @@ class ImageUploader < CarrierWave::Uploader::Base
       "uploads/User-#{model.news_feed.user_id}/#{model.class.to_s.underscore}"
     elsif model.class.to_s.underscore == "chatroom_photo"
       "uploads/User-#{model.chatroom.user_id}/#{model.class.to_s.underscore}"
+    elsif model.class.to_s.underscore == "chatroom"
+      "uploads/Chatroom-#{model.id}/Avatar"
     end
   end
 
