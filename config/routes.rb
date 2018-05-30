@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'news_feed_likes/create'
+  get 'news_feed_likes/destroy'
   root "news_feeds#index"
   # ----------------------------
   # Web Mode
@@ -28,6 +30,8 @@ Rails.application.routes.draw do
         post :upload_image
     end
   end
+
+  resources :news_feed_likes ,only: [:update, :destroy]
   # ----------------------------
   # API Mode
   scope :path => '/api/v1/', :module => "api_v1", :as => 'v1', :defaults => { :format => :json } do

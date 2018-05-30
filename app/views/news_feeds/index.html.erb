@@ -1,5 +1,5 @@
 <div>
-  <h5>撰寫貼文：</h5>
+  <h3>撰寫貼文：</h3>
   <%= render 'shared/news_feed', news_feed: @news_feed %>
   <br/>
   <hr/>
@@ -13,15 +13,19 @@
             <span class="card-title">create at:<%= news_feed.created_at %></span>
           </div>
           <div class="card-content">
+            <h5><%= news_feed.user.display_name %> 說：</h5>
             <p><%= news_feed.description %></p>
           </div>
           <div class="card-action">
             <div class="row">
-              <%= link_to "讚", "#" %>
-              <%= link_to "留言", "#" %>
-              <%= link_to "座標", "#" %>
-              <%= link_to "修改文章", edit_news_feed_path(news_feed.id) %>
-              <%= link_to "刪除文章", news_feed_path(news_feed.id), method: :delete, data: {confirm: "確定要刪除？"} %>
+              <%= link_to "#{like_amount(news_feed.id)}人喜歡" %>
+            </div>
+            <div class="row">
+              <%= like_or_unlike(news_feed.id) %>
+              <%= link_to "comment", "#" %>
+              <%= link_to "position", "#" %>
+              <%= link_to "update", edit_news_feed_path(news_feed.id) %>
+              <%= link_to "delete", news_feed_path(news_feed.id), method: :delete, data: {confirm: "確定要刪除？"} %>
             </div>
           </div>
         </div>
