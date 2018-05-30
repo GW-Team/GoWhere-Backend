@@ -22,4 +22,12 @@ module ApplicationHelper
       user.avatar.url
     end
   end
+
+  def chatroom_avatar(chatroom)
+    if chatroom.picture.file.nil?
+      "default_group.png"
+    else
+      chatroom.picture.url
+    end
+  end
 end
