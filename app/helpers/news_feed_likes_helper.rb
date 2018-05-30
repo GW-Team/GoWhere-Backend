@@ -1,0 +1,2 @@
+module NewsFeedLikesHelper
+end

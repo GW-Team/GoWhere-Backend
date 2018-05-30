@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'chatroom_groups/index'
-  get 'chatroom_groups/create'
   root "news_feeds#index"
   # ----------------------------
   # Web Mode
@@ -27,11 +25,13 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :news_feeds, except: [:new, :edit] do
+  resources :news_feeds, except: [:new] do
     member do
         post :upload_image
     end
   end
+
+  resources :news_feed_likes ,only: [:update, :destroy]
   # ----------------------------
   # API Mode
   scope :path => '/api/v1/', :module => "api_v1", :as => 'v1', :defaults => { :format => :json } do
@@ -67,6 +67,6 @@ Rails.application.routes.draw do
 
   end
 
-  
+
   mount ActionCable.server => '/cable'
 end
