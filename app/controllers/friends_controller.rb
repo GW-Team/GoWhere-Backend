@@ -11,7 +11,9 @@ class FriendsController < ApplicationController
   end
 
   def destroy
-    room = Chatroom.find_by(id: params[:chatroom_id])
+    users = [current_user.id, params[:id].to_i]
+    groups = ChatroomGroup.where("user_id in (?)", users).map{|group| group.chatroom_id}.compact.uniq
+    room = Chatroom.where("id in (?) and is_group = false", groups).first
     room.destroy if room
     friend = Friend.where("(user_id = ? and friend_id = ?) or (user_id = ? and friend_id = ?)", current_user.id, params[:id], params[:id], current_user.id)
     friend.destroy_all if friend
