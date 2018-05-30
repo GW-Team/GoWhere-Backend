@@ -7,9 +7,15 @@
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
   <% end %>
-
-  <%= f.input :password, label: "密碼", autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-  <%= f.input :password_confirmation, label: "密碼確認", required: false %>
+  <div class="row">
+    <div class="col m6">
+      <%= f.input :password, label: "密碼", autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
+    </div>
+    <div class="col m6">
+      <%= f.input :password_confirmation, label: "密碼確認", required: false %>
+    </div>
+  </div>
+  <%= f.input :avatar, label: "頭像" %>
   <%= f.input :gender, label: "性別", collection: [['男生', 1], ['女生', 2], ['不顯示', 3]], include_blank: "Please select" %>
   <%= f.input :phone, label: "電話號碼" %>
   <%= f.input :nickname, label: "暱稱" %>

@@ -3,7 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #messages {
-  height: 450px;
+  height: 350px;
+  max-height: 350px;
   overflow-y: auto;
 
 }
