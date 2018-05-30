@@ -28,9 +28,11 @@ class User < ApplicationRecord
 
 
   def self.reset_password(user)
-    md5 = Digest::MD5.new
-    md5 << user.email + Time.now().to_s + Devise.friendly_token()
-    key = md5.hexdigest[0..7]
+    # md5 = Digest::MD5.new
+    # md5 << user.email + Time.now().to_s + Devise.friendly_token()
+    # key = md5.hexdigest[0..7]
+    base64 = Base64.encode64(user.email + Time.now().to_s + Devise.friendly_token())
+    key = base64[0..7]
     user.update(password: key)
     UserMailer.send_forgot_password_email(user.email, key).deliver_now!
   end
