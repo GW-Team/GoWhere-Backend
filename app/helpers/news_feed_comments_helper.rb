@@ -1,0 +1,2 @@
+module NewsFeedCommentsHelper
+end
