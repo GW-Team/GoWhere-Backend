@@ -14,6 +14,10 @@
   overflow: scroll;
 }
 
+.login-background .add-user * {
+  text-align: left;
+}
+
 .login-background::before {
   content: '';
   display: inline-block;
