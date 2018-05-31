@@ -10,12 +10,11 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <section>
+  <body>
   <header class="navbar-fixed">
     <%= render 'shared/navbar' %>
   </header>
-    <%= render 'shared/drag-menu' %>
+    <%= render 'shared/drag-menu' if user_signed_in? %>
   <section>
     <div class="container">
       <% if user_signed_in? %>
@@ -36,4 +35,5 @@
     </div>
     </div>
   </section>
+  </body>
 </html>

@@ -1,4 +1,4 @@
-jQuery(document).on 'turbolinks:load', ->
+$(document).ready ->
   messages = $('#messages')
 
   if messages.length > 0
@@ -21,7 +21,7 @@ jQuery(document).on 'turbolinks:load', ->
 
       chat: (message, chatroom_id, type, user)->
         @perform 'chat', message: message, chatroom_id: chatroom_id, message_type: type, user: user
-    
+
     $('#new_message').submit (e) ->
       $this = $(this)
       textarea = $this.find('#message_body')

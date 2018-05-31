@@ -2,13 +2,13 @@
     <li>
       <div class="user-view">
         <div class="background">
-          <img src="assets/office.jpg">
+          <%= image_tag "office.jpg" %>
         </div>
         <a href="#user">
-          <img class="circle" src="assets/yuna.jpg">
+          <%= image_tag "yuna.jpg" %>
         </a>
         <a href="#name">
-          <span class="white-text name">John Doe</span>
+          <span class="white-text name"><%= current_user.display_name %></span>
         </a>
         <%= link_to "修改個人資料", edit_user_registration_path %>
       </div>

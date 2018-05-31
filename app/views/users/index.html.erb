@@ -5,10 +5,10 @@
     </tr>
     <% @users.each do |user| %>
       <tr>
-        <td><%= find_fullname(user.id) %></td>
+        <td><%= user.list_name %></td>
         <% if current_user.id != user.id %>
           <td>
-            <%= friend_or_cancel(user.id) %> 
+            <%= friend_or_cancel(user.id) %>
             <%= follow_or_cancel(user.id) %>
           </td>
         <% end %>

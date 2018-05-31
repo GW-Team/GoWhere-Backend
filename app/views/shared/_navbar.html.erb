@@ -1,32 +1,18 @@
 <% if user_signed_in? %>
-  <ul id="dropdown1" class="dropdown-content">
-    <li><a href="#!">one</a></li>
-    <li><a href="#!">two</a></li>
-    <li class="divider"></li>
-    <li><a href="#!">three</a></li>
-  </ul>
     <nav class="nav-style">
       <div class="nav-wrapper">
         <a href="#!" class="brand-logo">
-<!-- <img src="assets/logo.png" alt="" srcset=""> -->
-<%= image_tag "logo.png" %>
+        <%= image_tag "logo.png" %>
         </a>
         <%= link_to "首頁", root_path %>
-        <!-- <form>
-          <div class="input-field">
-            <input id="search" type="search" required>
-            <label class="label-icon" for="search">
-              <i class="material-icons">search</i>
-            </label>
-            <i class="material-icons">close</i>
-          </div>
-        </form> -->
         <ul class="right hide-on-med-and-down">
+        <li>
+        <%= form_tag users_path, method: "get" do %>
+            <%= text_field_tag :search, params[:search], placeholder: "搜尋使用者..." %>
+        <% end %>
+        </li>
           <li>
               <%= link_to "個人頁面", user_path(current_user) %>
-          </li>
-          <li>
-            <%= link_to "聊天室", "#" %>
           </li>
           <li>
             <a href="collapsible.html">
@@ -44,8 +30,10 @@
         </a>
       </div>
     </nav>
-<% else %>
-  <%= link_to  "登入", new_user_session_path %>
-  <%= link_to  "註冊", new_user_registration_path %>
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a href="#!">one</a></li>
+    <li><a href="#!">two</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">three</a></li>
+  </ul>
 <% end %>
-<hr/>

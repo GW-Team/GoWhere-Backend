@@ -7,9 +7,7 @@
     <% else %>
       <% get_friend(chatroom).each do |group| %>
         <li>
-          <%= image_tag user_avatar(group.user) %>
-          <br>
-          <%= link_to  "#{group.user.list_name}", chatroom_path(chatroom) unless chatroom.is_group%>
+          <%= link_to  "#{image_tag user_avatar(group.user)} #{group.user.list_name}".html_safe, chatroom_path(chatroom) unless chatroom.is_group%>
         </li>
       <% end %>
     <% end %>

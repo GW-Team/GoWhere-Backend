@@ -14,11 +14,11 @@
 //= require activestorage
 //= require jquery3
 //= require materialize
-// //= require turbolinks
 //= require_tree .
 
 
 $(document).ready(function () {
   $('.sidenav').sidenav();
   $(".dropdown-trigger").dropdown();
+  $('select').formSelect();
 });

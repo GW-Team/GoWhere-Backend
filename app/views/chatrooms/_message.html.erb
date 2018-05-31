@@ -1,5 +1,12 @@
-<p>
-  <span><%= message.user.display_name %> at <%= message.timestamp %> says:</span><br>
-  <%= image_tag user_avatar(message.user) %>
-  <%= message.content %>
-</p>
+<div class="chat-message">
+  <div class="message-img">
+    <%= image_tag user_avatar(message.user) %>
+  </div>
+  <div class="message-text">
+    <span class="title"><%= message.user.display_name %></span>
+    <span class="time"><%= message.timestamp %> </span><br>
+    <div class="message-conten">
+    <%= message.content %>
+    </div>
+  </div>
+</div>
