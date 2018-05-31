@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>GoWhere</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,15 +11,19 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <section>
+  <header class="navbar-fixed">
     <%= render 'shared/navbar' %>
-    <div>
+  </header>
+    <%= render 'shared/drag-menu' %>
+  <section>
+    <div class="container">
       <% if user_signed_in? %>
         <div class="row">
-          <div class="col m3">
+          <div class="col m4 ">
             <%= render 'shared/left' %>
           </div>
-          <div class="col m9">
+          <div class="col m8">
             <% if flash[:notice] %>
               <div class="notice"><%= flash[:notice] %></div>
             <% end %>
@@ -28,5 +34,6 @@
         <%= yield %>
       <% end %>
     </div>
-  </body>
+    </div>
+  </section>
 </html>

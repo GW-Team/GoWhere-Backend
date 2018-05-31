@@ -1,14 +1,27 @@
 // Place all the styles related to the Chatrooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
 #messages {
   height: 350px;
   max-height: 350px;
   overflow-y: auto;
-
 }
-#new_message input{
-  border: 1px solid black;
-  padding-left : 1rem;
+
+#new_message input {
+  background-color: #00A99D;
+  border-radius: 10px;
+}
+
+.chat-room li {
+  width: 100%;
+}
+
+.chat-room li img {
+  width: 36px;
+  height: 36px;
+  display: inline-block;
+}
+
+.chat-room li a {
+  vertical-align: middle;
 }

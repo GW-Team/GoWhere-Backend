@@ -17,3 +17,8 @@
 // //= require turbolinks
 //= require_tree .
 
+
+$(document).ready(function () {
+  $('.sidenav').sidenav();
+  $(".dropdown-trigger").dropdown();
+});

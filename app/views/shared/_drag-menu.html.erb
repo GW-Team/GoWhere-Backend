@@ -1,0 +1,32 @@
+  <ul id="slide-out" class="sidenav">
+    <li>
+      <div class="user-view">
+        <div class="background">
+          <img src="assets/office.jpg">
+        </div>
+        <a href="#user">
+          <img class="circle" src="assets/yuna.jpg">
+        </a>
+        <a href="#name">
+          <span class="white-text name">John Doe</span>
+        </a>
+        <%= link_to "修改個人資料", edit_user_registration_path %>
+      </div>
+    </li>
+    <li>
+      <a href="#!">
+        <i class="material-icons">directions_bus</i>First Link With Icon</a>
+    </li>
+    <li>
+      <a href="#!">Second Link</a>
+    </li>
+    <li>
+      <div class="divider"></div>
+    </li>
+    <li>
+      <a class="subheader">Subheader</a>
+    </li>
+    <li>
+      <%= link_to "登出", destroy_user_session_path, method: :delete %>
+    </li>
+  </ul>
