@@ -1,12 +1,38 @@
-<div class="chat-message">
-  <div class="message-img">
-    <%= image_tag user_avatar(message.user) %>
-  </div>
-  <div class="message-text">
-    <span class="title"><%= message.user.display_name %></span>
-    <span class="time"><%= message.timestamp %> </span><br>
-    <div class="message-conten">
-    <%= message.content %>
+<% if message.message_type == 1 %>
+  <div class="chat-message">
+    <div class="message-img">
+      <%= image_tag user_avatar(message.user) %>
+    </div>
+    <div class="message-text">
+      <span class="title"><%= message.user.display_name %></span>
+      <span class="time"><%= message.timestamp %> </span><br>
+      <div class="message-conten">
+      <%= message.content %>
+      </div>
     </div>
   </div>
-</div>
+<% elsif message.message_type == 4 %>
+  <div class="chat-message">
+    <div class="message-img">
+      <%= image_tag user_avatar(message.user) %>
+    </div>
+    <div class="message-text">
+      <span class="title"><%= message.user.display_name %></span>
+      <span class="time"><%= message.timestamp %> </span><br>
+      <!-- ----------------- -->
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="card darken-1">
+            <div class="card-content">
+              <%= show_message(message) %>
+            </div>
+            <div class="card-action">
+              <%= link_to  "瀏覽", note_path(message.child) %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ----------------- -->
+    </div>
+  </div>
+<% end %>

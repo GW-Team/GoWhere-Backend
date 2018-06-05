@@ -20,4 +20,9 @@
 $(document).ready(function () {
   $('.sidenav').sidenav();
   $(".dropdown-trigger").dropdown();
+  
+  const notice = document.getElementById("notice");
+  if(notice){
+    M.toast({html: notice.innerHTML});
+  }  
 });

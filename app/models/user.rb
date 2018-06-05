@@ -17,6 +17,7 @@ class User < ApplicationRecord
   has_many :followers_follower_apply_form, :class_name => 'FollowerApplyForm', :foreign_key => 'follower_id'
   has_many :favorites
   has_many :chatroom_note_comments
+  has_many :chatroom_notes
   has_many :chatroom_messages
   has_many :chatroom_groups
   has_many :activity_participants

@@ -1,15 +1,9 @@
 class FriendsController < ApplicationController
+  include FriendsHelper
+
   def create
     form = FriendApplyForm.includes(:user).find_by(id: params[:form_id])
-    current_user.friends_friend.create(user_id: params[:id])
-    current_user.users_friend.create(friend_id: params[:id])
-    chatroom = Chatroom.create
-    chatroom.chatroom_groups.create(user_id: current_user.id)
-    chatroom.chatroom_groups.create(user_id: params[:id])
-    current_user.followers_follower.create! user_id: params[:id]
-    current_user.users_follower.create! follower_id: params[:id]
-
-    form.destroy
+    add_friend(params[:id], form)
     redirect_back fallback_location: root_path
   end
 

@@ -11,6 +11,9 @@ class Ability
       #   can :read, :all
       # end
       can :manage, ChatroomGroup, user_id: user.id
+
+      can :read, :all
+      can :manage, ChatroomNote, user_id: user.id
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.

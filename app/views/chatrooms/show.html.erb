@@ -7,8 +7,9 @@
 </h1>
 <% if @chatroom.is_group %>
   <%= link_to  "群組管理", edit_chatroom_path(@chatroom) %>
-  <%= link_to  "成員管理", chatroom_chatroom_groups_path(@chatroom) %>
+  <%= link_to  "成員管理", chatroom_groups_path(@chatroom) %>
 <% end %>
+<%= link_to  "記事本", chatroom_notes_path(@chatroom) %>
 
 
 
@@ -19,8 +20,6 @@
       <% @chatroom.chatroom_messages.each do |msg| %>
         <%= render  "chatrooms/message", message: msg %>
       <% end %>
-    <% else %>
-      No messages
     <% end %>
   </div>
 </div>

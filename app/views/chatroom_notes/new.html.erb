@@ -1,0 +1,7 @@
+<h3>新增記事</h3>
+<%= link_to  "上一頁", chatroom_notes_path(@chatroom) %>
+<hr>
+<%= simple_form_for @note do |f| %>
+  <%= f.input :content, label: "內容" %>
+  <%= f.submit "送出" %>
+<% end %>
