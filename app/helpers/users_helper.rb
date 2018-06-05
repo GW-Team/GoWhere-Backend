@@ -10,8 +10,6 @@ module UsersHelper
   def friend_or_cancel(id)
     if Friend.find_by(user_id: current_user.id, friend_id: id)
       button_to "刪除好友", friend_path(id), method: :delete
-    elsif FriendApplyForm.find_by(user_id: id, apply_id: current_user.id)
-      button_to "申請好友", friend_apply_forms_path, method: :get
     elsif apply_for_friend ||= FriendApplyForm.find_by(user_id: current_user.id, apply_id: id)
       button_to "取消申請", friend_apply_form_path(apply_for_friend.id), method: :delete
     else

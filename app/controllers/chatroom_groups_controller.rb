@@ -15,12 +15,13 @@ class ChatroomGroupsController < ApplicationController
 
   def destroy
     group = ChatroomGroup.includes(:chatroom).find_by(id: params[:id])
-    if group.is_admin
-      group.chatroom.destroy
+    my_group = (group.user == current_user)
+    group.destroy
+    if my_group
+      redirect_to root_path  
     else
-      group.destroy
+      redirect_back fallback_location: root_path
     end
-    redirect_back fallback_location: root_path  
   end
 
   private

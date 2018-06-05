@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   resources :friend_apply_forms, only: [:index, :create, :destroy]
   resources :friends, only: [:create, :destroy]
   resources :chatrooms, only: [:new, :create, :edit, :update, :show] do
-    resources :chatroom_groups, only: [:index, :create, :destroy], shallow: true
+    resources :chatroom_groups, only: [:index, :create, :destroy], shallow: true, as: :groups
+    resources :chatroom_notes, shallow: true, as: :notes
   end
 
   resources :followers, only: [:destroy] do

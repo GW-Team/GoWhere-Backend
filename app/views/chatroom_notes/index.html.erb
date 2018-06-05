@@ -1,0 +1,12 @@
+<%= link_to  "新增", new_chatroom_note_path(@chatroom) %>
+<%= link_to  "回上頁", chatroom_path(@chatroom) %>
+
+
+<% if @chatroom.chatroom_notes %>
+  <div class="collection">
+    <% @chatroom.chatroom_notes.each do |note| %>
+      <%= link_to  simple_format(note.content), note_path(note), class: "collection-item" %>
+    <% end %>
+  </div>
+<% end %>
+

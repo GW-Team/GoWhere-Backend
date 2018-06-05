@@ -11,7 +11,7 @@
     <tr>
       <td><%= friend.friend.list_name %></td>
       <td>
-        <%= button_to  "新增", chatroom_chatroom_groups_path(@chatroom), params: {user_id: friend.friend_id} %>
+        <%= button_to  "新增", chatroom_groups_path(@chatroom), params: {user_id: friend.friend_id} %>
       </td>
     </tr>
     <% end %>
