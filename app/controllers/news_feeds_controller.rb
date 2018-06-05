@@ -16,10 +16,12 @@ class NewsFeedsController < ApplicationController
   end
 
   def edit
-
+    authorize! :manage, @news_feed
   end
 
   def update
+    authorize! :manage, @news_feed
+
     if @news_feed.update(news_feed_params)
       redirect_to root_path, notice: "修改成功"
     else
@@ -28,6 +30,8 @@ class NewsFeedsController < ApplicationController
   end
 
   def destroy
+    authorize! :manage, @news_feed
+
     redirect_to root_path, notice: "刪除成功" if @news_feed.destroy
   end
 

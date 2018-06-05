@@ -5,7 +5,7 @@
   <ul class="collection">
     <% @news_feed.news_feed_comments.each do |comment| %>
       <li class="collection-item avatar">
-        <%= image_tag user_avatar(comment.user), alt: "", class: "circle" %>
+        <%= image_tag user_avatar(comment.user), class: "circle" %>
         <span class="title"><%= comment.user.display_name %> 留言：</span>
         <p>
           <b><%= simple_format(comment.content) %></b><br/>
