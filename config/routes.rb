@@ -27,12 +27,13 @@ Rails.application.routes.draw do
   end
 
   resources :news_feeds, except: [:new] do
+    resources :news_feed_comments, as: :comments
     member do
         post :upload_image
     end
   end
 
-  resources :news_feed_likes ,only: [:update, :destroy]
+  resources :news_feed_likes, only: [:update, :destroy]
   # ----------------------------
   # API Mode
   scope :path => '/api/v1/', :module => "api_v1", :as => 'v1', :defaults => { :format => :json } do

@@ -39,4 +39,5 @@ class NewsFeedsController < ApplicationController
   def find_news_feed
     @news_feed = current_user.news_feeds.find_by(id: params[:id])
   end
+
 end

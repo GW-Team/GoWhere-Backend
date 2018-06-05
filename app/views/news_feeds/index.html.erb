@@ -9,11 +9,11 @@
         <div class="card">
           <div class="card-title">
             <h3><%= news_feed.user.display_name %> </h3>
-            <h5><%= news_feed.created_at %></h5>
+            <h5>create at:<%= news_feed.created_at.strftime('%Y-%m-%d %H:%M') %></h5>
           </div>
           <div class="card-image">
             <img src="https://materializecss.com/images/sample-1.jpg">
-            <span class="card-title">create at:<%= news_feed.created_at.strftime('%Y-%m-%d %H:%M:%S') %></span>
+            <span class="card-title"></span>
           </div>
           <div class="card-content">
             <h5><%= news_feed.user.display_name %> 說：</h5>
@@ -25,10 +25,15 @@
             </div>
             <div class="row">
               <%= like_or_unlike(news_feed.id) %>
-              <%= link_to "comment", "#" %>
-              <%= link_to "position", "#" %>
-              <%= link_to "update", edit_news_feed_path(news_feed.id) %>
-              <%= link_to "delete", news_feed_path(news_feed.id), method: :delete, data: {confirm: "確定要刪除？"} %>
+              <%= link_to "comment", news_feed_comments_path(news_feed.id) %>
+
+              <% if can? :manage, news_feed %>
+                <%= link_to "update", edit_news_feed_path(news_feed.id) %>
+                <%= link_to "delete", news_feed_path(news_feed.id), method: :delete, data: {confirm: "確定要刪除？"} %>
+              <% end %>
+            </div>
+            <div class="row">
+
             </div>
           </div>
         </div>
