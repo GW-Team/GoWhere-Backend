@@ -1,6 +1,6 @@
 module ApplicationHelper
 
-  
+
   def find_fullname(id)
     user = find_user(id)
     "#{user.first_name} #{user.last_name}"
@@ -31,5 +31,9 @@ module ApplicationHelper
     else
       chatroom.picture.url
     end
+  end
+
+  def link_use_i_tag(icon_name, link, use_method)
+    link_to content_tag(:i, icon_name, :class => "material-icons"), link, method: use_method
   end
 end

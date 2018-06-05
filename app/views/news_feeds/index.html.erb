@@ -2,37 +2,46 @@
   <%= render 'form', news_feed: @news_feed %>
   <br/>
   <hr/>
-
+  <br/>
   <% @news_feeds.each do |news_feed| %>
-    <div class="row">
-      <div class="col s12 m12">
-        <div class="card">
-          <div class="card-title">
-            <h3><%= news_feed.user.display_name %> </h3>
-            <h5><%= news_feed.created_at %></h5>
+    <ul class="collection">
+      <li class="collection-item avatar">
+        <%= image_tag user_avatar(news_feed.user), class: "circle" %>
+        <span class="title"><%= news_feed.user.display_name %></span>
+        <p><%= news_feed.created_at.strftime('%Y-%m-%d %H:%M') %></p>
+
+        <% if can? :manage, news_feed %>
+          <div class="secondary-content">
+            <%= link_use_i_tag("keyboard_arrow_right", edit_news_feed_path(news_feed.id), :get) %>
+            <%= link_use_i_tag("delete", news_feed_path(news_feed.id), :delete) %>
           </div>
-          <div class="card-image">
-            <img src="https://materializecss.com/images/sample-1.jpg">
-            <span class="card-title">create at:<%= news_feed.created_at.strftime('%Y-%m-%d %H:%M:%S') %></span>
-          </div>
-          <div class="card-content">
-            <h5><%= news_feed.user.display_name %> 說：</h5>
-            <p><%= news_feed.description %></p>
-          </div>
-          <div class="card-action">
-            <div class="row">
-              <%= link_to "#{like_amount(news_feed.id)}人喜歡" %>
-            </div>
-            <div class="row">
-              <%= like_or_unlike(news_feed.id) %>
-              <%= link_to "comment", "#" %>
-              <%= link_to "position", "#" %>
-              <%= link_to "update", edit_news_feed_path(news_feed.id) %>
-              <%= link_to "delete", news_feed_path(news_feed.id), method: :delete, data: {confirm: "確定要刪除？"} %>
+        <% end %>
+
+      </li>
+      <li>
+        <div class="row">
+          <div class="col s12 m12">
+            <div class="card">
+              <div class="card-image">
+                <img src="https://materializecss.com/images/sample-1.jpg">
+              </div>
+              <div class="card-content">
+                <p><%= news_feed.description %></p>
+              </div>
+              <div class="card-action">
+                <div class="row">
+                  <%= "#{like_amount(news_feed.id)}人喜歡" %>
+                  <%= "#{comment_amount(news_feed.id)}人留言" %>
+                </div>
+                <div class="row">
+                  <%= like_or_unlike(news_feed.id) %>
+                  <%= link_to "comment", news_feed_comments_path(news_feed.id) %>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </li>
+    </ul>
   <% end %>
 </div>
