@@ -16,7 +16,7 @@ $(document).ready ->
         # Called when the subscription has been terminated by the server
 
       received: (data) ->
-        messages.append data['message']
+        messages.find("ul").append data['message']
         messages_to_bottom()
 
       chat: (message, chatroom_id, type, user)->

@@ -1,0 +1,14 @@
+<div class="col s12">
+    <ul class="user-list">
+      <% if @friends.size > 0 %>
+        <% @friends.each do |friend| %>
+          <li>
+            <%= image_tag user_avatar(friend.friend) %>
+            <span><%= friend.friend.display_name %></span>
+            <%= friend_or_cancel(friend.friend) %>
+            <%= link_to  "個人主頁", user_path(friend.friend), class: "waves-effect waves-light btn" %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>

@@ -1,17 +1,25 @@
-<table>
-    <tr>
-      <th>使用者</th>
-      <th>追蹤功能</th>
-    </tr>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.list_name %></td>
-        <% if current_user.id != user.id %>
-          <td>
-            <%= friend_or_cancel(user.id) %>
-            <%= follow_or_cancel(user.id) %>
-          </td>
+<div class="row">
+  <%= form_tag users_path, method: "get" do %>
+  <div class="input-field col s12">
+      <%= text_field_tag :search, params[:search], id: "user" %>
+      <label for="user">搜尋</label>
+    </div>
+  <% end %>
+
+  <div class="col s12">
+    <ul class="user-list">
+      <% if @users.present? %>
+        <% @users.each do |user| %>
+          <li>
+            <%= image_tag user_avatar(user) %>
+            <span><%= user.list_name %></span>
+            <% if current_user.id != user.id %>
+              <%= friend_or_cancel(user.id) %>
+              <%= follow_or_cancel(user.id) %>
+            <% end %>
+          </li>
         <% end %>
-      </tr>
-    <% end %>
-</table>
+      <% end %>
+    </ul>
+  </div>
+</div>

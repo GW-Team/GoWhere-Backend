@@ -1,6 +1,10 @@
 class FriendsController < ApplicationController
   include FriendsHelper
 
+  def index
+    @friends = current_user.users_friend
+  end
+
   def create
     form = FriendApplyForm.includes(:user).find_by(id: params[:form_id])
     add_friend(params[:id], form)

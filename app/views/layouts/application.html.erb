@@ -11,29 +11,14 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-  <header class="navbar-fixed">
-    <%= render 'shared/navbar' %>
-  </header>
-    <%= render 'shared/drag-menu' if user_signed_in? %>
-  <section>
-    <div class="container">
-      <% if user_signed_in? %>
-        <div class="row">
-          <div class="col m3 ">
-            <%= render 'shared/left' %>
-          </div>
-          <div class="col m9">
-            <% if flash[:notice] %>
-              <div id="notice" hidden><%= flash[:notice] %></div>
-            <% end %>
-            <%= yield %>
-          </div>
-        </div>
-      <% else %>
-        <%= yield %>
-      <% end %>
-    </div>
-    </div>
-  </section>
+    <% if flash[:notice] %>
+      <div id="notice" hidden><%= flash[:notice] %></div>
+    <% end %>
+    
+    <% if user_signed_in? %>
+      <%= render  "shared/main" %>
+    <% else %>
+      <%= yield %>
+    <% end %>
   </body>
 </html>

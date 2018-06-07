@@ -4,24 +4,24 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :news_feeds
-  has_many :news_feed_likes
-  has_many :news_feed_comments
-  has_many :friends_friend, :class_name => 'Friend', :foreign_key => 'friend_id'
-  has_many :users_friend, :class_name => 'Friend', :foreign_key => 'user_id'
-  has_many :applicants_friend_apply_form, :class_name => 'FriendApplyForm', :foreign_key => 'apply_id'
-  has_many :users_friend_apply_form, :class_name => 'FriendApplyForm', :foreign_key => 'user_id'
-  has_many :users_follower, :class_name => 'Follower', :foreign_key => 'user_id'
-  has_many :followers_follower, :class_name => 'Follower', :foreign_key => 'follower_id'
-  has_many :users_follower_apply_form, :class_name => 'FollowerApplyForm', :foreign_key => 'user_id'
-  has_many :followers_follower_apply_form, :class_name => 'FollowerApplyForm', :foreign_key => 'follower_id'
-  has_many :favorites
-  has_many :chatroom_note_comments
-  has_many :chatroom_notes
-  has_many :chatroom_messages
-  has_many :chatroom_groups
-  has_many :activity_participants
-  has_many :activity_comments
+  has_many :news_feeds, dependent: :destroy
+  has_many :news_feed_likes, dependent: :destroy
+  has_many :news_feed_comments, dependent: :destroy
+  has_many :friends_friend, :class_name => 'Friend', :foreign_key => 'friend_id', dependent: :destroy
+  has_many :users_friend, :class_name => 'Friend', :foreign_key => 'user_id', dependent: :destroy
+  has_many :applicants_friend_apply_form, :class_name => 'FriendApplyForm', :foreign_key => 'apply_id', dependent: :destroy
+  has_many :users_friend_apply_form, :class_name => 'FriendApplyForm', :foreign_key => 'user_id', dependent: :destroy
+  has_many :users_follower, :class_name => 'Follower', :foreign_key => 'user_id', dependent: :destroy
+  has_many :followers_follower, :class_name => 'Follower', :foreign_key => 'follower_id', dependent: :destroy
+  has_many :users_follower_apply_form, :class_name => 'FollowerApplyForm', :foreign_key => 'user_id', dependent: :destroy
+  has_many :followers_follower_apply_form, :class_name => 'FollowerApplyForm', :foreign_key => 'follower_id', dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :chatroom_note_comments, dependent: :destroy
+  has_many :chatroom_notes, dependent: :destroy
+  has_many :chatroom_messages, dependent: :destroy
+  has_many :chatroom_groups, dependent: :destroy
+  has_many :activity_participants, dependent: :destroy
+  has_many :activity_comments, dependent: :destroy
   
   mount_uploader :avatar, ImageUploader
 

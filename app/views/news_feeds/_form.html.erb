@@ -1,4 +1,4 @@
-<%= simple_form_for news_feed do |f| %>
-  <%= f.input :description, label: "內容", placeholder: "撰寫貼文..." %>
+<%= simple_form_for news_feed, class: "col s12" do |f| %>
+  <%= f.input :description, label: "內容", placeholder: "撰寫貼文...", input_html: {id: "icon_prefix2", class: "materialize-textarea"} %>
   <%= f.button :submit, "送出", data: { disable_with: "處理中..." },class: "btn waves-light" %>
 <% end %>

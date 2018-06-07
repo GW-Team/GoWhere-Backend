@@ -1,0 +1,21 @@
+<header class="navbar-fixed">
+  <%= render  "shared/navbar" %>
+</header>
+
+<%= render 'shared/drag-menu' %>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col m3 l3 left-bar">
+        <%= render  "shared/left" %>
+      </div>
+      <div class="col s12 m12 l6 ">
+        <%= yield %>
+      </div>
+      <div class="col m3 l3 over-layout">
+        <%= render  "shared/right" %>
+      </div>
+    </div>
+  </div>
+</section>
+<footer></footer>

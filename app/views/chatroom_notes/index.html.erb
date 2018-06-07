@@ -1,12 +1,46 @@
-<%= link_to  "新增", new_chatroom_note_path(@chatroom) %>
-<%= link_to  "回上頁", chatroom_path(@chatroom) %>
-
-
-<% if @chatroom.chatroom_notes %>
-  <div class="collection">
-    <% @chatroom.chatroom_notes.each do |note| %>
-      <%= link_to  simple_format(note.content), note_path(note), class: "collection-item" %>
-    <% end %>
+<div class="chat-box">
+  <div class="chat-title">
+    <a href="<%= chatroom_path(@chatroom) %>">
+      <i class="material-icons white-text">chevron_left</i>
+    </a>
+    <a class="modal-trigger" href="#add-note">
+      <i class="material-icons right">add</i>
+    </a>
+    <div id="add-note" class="modal">
+      <div class="modal-content">
+        <h4>Add Note</h4>
+        <%= form_for @note, url: chatroom_notes_path, html: {class: "row"} do |f| %>
+          <div class="input-field col s12">
+            <i class="material-icons prefix">mode_edit</i>
+            <%= f.text_area :content, id: "icon_prefix2", class: "materialize-textarea" %>
+            <label for="icon_prefix2">Content</label>
+          </div>
+          <div class="modal-footer col s12">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Delete</a>
+            <%= f.submit "Add", class: "modal-close waves-effect waves-green btn-flat" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-<% end %>
-
+  <div class="note-main">
+    <ul class="chat-list">
+      <% if @chatroom.chatroom_notes %>
+        <% @chatroom.chatroom_notes.each do |note| %>
+          <li>
+            <div class="card ">
+              <div class="card-content">
+                <p class="card-p">
+                  <%= simple_format(note.content) %>
+                </p>
+              </div>
+              <div class="card-action">
+                  <%= link_to  "留言", note_path(note), class: "collection-item" %>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>
