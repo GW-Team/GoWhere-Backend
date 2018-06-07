@@ -1,0 +1,23 @@
+<%= link_to  "新增", new_news_feed_comment_path(@news_feed) %>
+<%= link_to  "回上頁", root_path %>
+
+<% if @news_feed.news_feed_comments %>
+  <ul class="collection">
+    <% @news_feed.news_feed_comments.each do |comment| %>
+      <li class="collection-item avatar">
+        <%= image_tag user_avatar(comment.user), class: "circle" %>
+        <span class="title"><%= comment.user.display_name %> 留言：</span>
+        <p>
+          <b><%= simple_format(comment.content) %></b><br/>
+          <%= comment.created_at.strftime('%Y-%m-%d %H:%M') %>
+        </p>
+        <% if can? :manage, comment %>
+          <div class="secondary-content">
+            <%= link_use_i_tag("keyboard_arrow_right", edit_news_feed_comment_path(@news_feed, comment), :get) %>
+            <%= link_use_i_tag("delete", news_feed_comment_path(@news_feed, comment), :delete) %>
+          </div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
