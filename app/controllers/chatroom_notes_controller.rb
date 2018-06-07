@@ -3,10 +3,7 @@ class ChatroomNotesController < ApplicationController
   before_action :find_note, only: [:show, :edit, :update, :destroy]
 
   def index
-  end
-
-  def new
-    @note = @chatroom.chatroom_notes.new
+    @note = ChatroomNote.new
   end
 
   def create
@@ -14,10 +11,8 @@ class ChatroomNotesController < ApplicationController
     @note.user_id = current_user.id
     if @note.save
       @chatroom.chatroom_messages.create(message_type: 4, child: @note.id, user_id: current_user.id, content: @note.content[0..19])
-      redirect_to note_path(@note)
-    else
-      render :new
     end
+    redirect_to chatroom_notes_path
   end
 
   def edit
@@ -38,6 +33,7 @@ class ChatroomNotesController < ApplicationController
       flash[:notice] = "該投稿已被刪除！"
       redirect_back fallback_location: root_path
     end
+    @comment = ChatroomNoteComment.new
   end
 
   def destroy
@@ -52,7 +48,7 @@ class ChatroomNotesController < ApplicationController
   end
 
   def find_note
-    @note = ChatroomNote.includes(:chatroom).find_by(id: params[:id])
+    @note = ChatroomNote.includes(:chatroom, chatroom_note_comments: :user).find_by(id: params[:id])
     if @note
       @chatroom = @note.chatroom 
     end

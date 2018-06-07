@@ -1,17 +1,13 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 nav .hide-on-med-and-down a.sidenav-trigger {
   display: block;
 }
 
-nav.nav-style {
+nav {
   background-color: #00A99D;
-  top: 0px;
 }
 
 .brand-logo {
-  line-height: 56px;
+  line-height: 60px;
 }
 
 .brand-logo img {
@@ -19,12 +15,61 @@ nav.nav-style {
   height: 56px;
 }
 
-.user-view a img {
-  border-radius: 50%;
+nav .brand-logo {
+  font-size: 1.3em;
+}
+
+nav .brand-logo img {
+  margin-right: 0.5em;
+}
+
+.mobile-bar {
+  display: none;
+}
+
+.mobile-bar li {
+  width: 25%;
+  text-align: center;
+}
+
+.sidenav .user-view {
+  padding: 24px;
+  padding-bottom: 32px;
+  text-align: center;
+}
+
+.sidenav .right {
+  margin-top: -25px;
+}
+
+.sidenav .user-view .circle {
+  height: 128px;
+  width: 128px;
+  display: inline-block;
+}
+
+.sidenav .user-view .name {
+  margin-top: 0px;
+  font-size: 1.3em;
+}
+
+.sidenav .user-view .create {
+  margin-top: -20px;
+}
+
+.sidenav .user-view .background {
+  background-color: #000000;
+}
+
+.sidenav .user-view .background img {
+  opacity: 0.8;
 }
 
 @media only screen and (max-width: 992px) {
   nav .brand-logo {
     display: none;
+  }
+  .mobile-bar {
+    display: block;
   }
 }

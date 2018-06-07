@@ -2,3 +2,7 @@
     <%= link_to "#{@follow_me_list.size} 位粉絲", follow_me_followers_path %>
     <%= link_to "正在追蹤 #{@follow_whom_list.size} 人", follow_whom_followers_path %>
 </div>
+
+<div>
+    <%= current_user.display_name %>
+</div>

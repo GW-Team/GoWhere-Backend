@@ -1,0 +1,6 @@
+<% if chatroom.is_group %>
+    <%= link_to  "群組管理", chatroom_groups_path(chatroom) %>
+  <% else %>
+    <%= link_to  "個人主頁", user_path(find_friend_from_chatroom(chatroom)) %>
+  <% end %>
+</li>

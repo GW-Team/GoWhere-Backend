@@ -1,6 +1,10 @@
 class ChatroomsController < ApplicationController
   before_action :find_chatroom, only: [:edit, :update, :show]
 
+  def index
+    @groups = current_user.chatroom_groups.map{|group| group if group.chatroom.is_group}.compact
+  end
+
   def new
     @chatroom = Chatroom.new
   end
@@ -28,8 +32,14 @@ class ChatroomsController < ApplicationController
   end
 
   def show
+    @photo = @chatroom.chatroom_photos.new
   end
   
+  def destroy
+    puts "\n\n#{params}\n\n"
+    redirect_to chatrooms_path
+  end
+
   private
   def find_chatroom
     @chatroom = Chatroom.includes(chatroom_messages: :user).find_by(id: params[:id])

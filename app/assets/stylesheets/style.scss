@@ -1,0 +1,287 @@
+body {
+  background-color: #f4f4f4;
+}
+
+.over-latout {
+  overflow: scroll;
+  height: 85vh;
+}
+
+section .container {
+  margin-top: 1em;
+}
+
+section .container .left-bar>.dropdown-trigger {
+  display: block;
+  margin-bottom: 1em;
+  color: #8c8c8c;
+  border-bottom: #c9c9c9 solid 1px;
+  padding: 0.5em 0;
+}
+
+section .container .left-bar>a {
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+section .container .left-bar a img {
+  border-radius: 50%;
+  margin-right: 2px;
+  height: 42px;
+  vertical-align: middle;
+}
+
+section .container .left-bar a i {
+  margin-top: 5px;
+}
+
+section .container .left-bar a.waves-effect i {
+  margin-top: 0;
+}
+
+@media only screen and (max-width: 992px) {
+  .container .row .m3 {
+    display: none;
+  }
+}
+
+.chat-box {
+  border: #00A99D 2px solid;
+}
+
+.chat-box .chat-title {
+  background-color: #00A99D;
+  padding: 10px;
+}
+
+.chat-box .chat-title img {
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  vertical-align: middle;
+  background: #FFFFFF;
+}
+
+.chat-box .chat-title>span {
+  color: #f4f4f4;
+  opacity: 0.9;
+  vertical-align: middle;
+}
+
+.chat-box .chat-title i {
+  margin-top: 6px;
+}
+
+.chat-box .chat-title>.dropdown-trigger {
+  float: right;
+  color: #f4f4f4;
+}
+
+.chat-box .chat-main {
+  background-color: #FFFFFF;
+  overflow-y: scroll;
+  margin: 0px;
+  height: calc(70vh - 10px);
+}
+
+.chat-box .note-main {
+  background-color: #FFFFFF;
+  overflow-y: scroll;
+  margin: 0px;
+  height: calc(70vh - 10px);
+}
+
+ul.chat-list {
+  padding: 0 0.5em;
+}
+
+ul.chat-list>li {
+  margin-bottom: 1em;
+}
+
+ul.chat-list .chat-window {
+  display: inline-block;
+  width: calc(100% - 50px);
+}
+
+.chat-window .title {
+  width: 100%;
+}
+
+ul.chat-list>li>img {
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  display: inline-block;
+  float: left;
+  margin-right: 0.5em;
+}
+
+ul.chat-list li .name {
+  font-size: 1em;
+  display: inline-block;
+  width: auto;
+}
+
+ul.chat-list li .time {
+  font-size: 0.7em;
+  color: #c9c9c9;
+  display: inline-block;
+  float: right;
+}
+
+ul.chat-list li .box {
+  padding: 0.5em 1em;
+  margin-top: 0.5em;
+  border-radius: 10px;
+  background-color: #f4f4f4;
+  display: inline-block;
+}
+
+.chat-box .chat-create {
+  background-color: #f4f4f4;
+  border-top: #00A99D 2px solid;
+}
+
+.fixed-action-btn {
+  position: relative;
+  right: auto;
+  bottom: auto;
+  padding-top: initial;
+  margin-bottom: 0;
+  z-index: 997;
+  display: inline-block;
+}
+
+.fixed-action-btn ul {
+  bottom: 36px;
+}
+
+.btn-floating.btn-large {
+  height: 42px;
+  width: 42px;
+}
+
+.btn-floating.btn-large i {
+  line-height: 42px;
+}
+
+.chat-box .chat-create button {
+  background-color: #00A99D;
+  color: #FFFFFF;
+  border: #00A99D 1px solid;
+  border-radius: 50%;
+  height: 36px;
+  width: 36px;
+}
+
+.chat-box .chat-create button i {
+  margin-left: 0;
+}
+
+.chat-create form input[type=text]:not(.browser-default) {
+  width: 70%;
+}
+
+.user-list {
+  border-top: #d9d9d9 solid 1px;
+}
+
+.user-list li {
+  margin-bottom: 0.2em;
+  margin-top: 0.2em;
+  padding: 0.5em;
+  transition: 300ms;
+}
+
+.user-list li:hover {
+  background-color: #d9d9d9;
+}
+
+.user-list li a {
+  padding: 0.3em 0;
+  display: block;
+}
+
+.user-list li a.btn {
+  padding: 0 1em;
+  margin-left: 0.5em;
+  display: inline-block;
+  float: right;
+}
+
+.user-list li button.btn {
+  padding: 0 1em;
+  margin-left: 0.5em;
+  display: inline-block;
+  float: right;
+}
+
+.user-list li img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.card-p {
+  padding-top: 1em;
+}
+
+.card-title a img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.card-title a {
+  color: #8c8c8c;
+  font-size: 0.8em;
+}
+
+.user-list li span {
+  font-size: 0.8em;
+  color: #8c8c8c;
+}
+
+.user-list li .btn {
+  width: auto;
+}
+
+.note-box li {
+  border-bottom: #c9c9c9 1px solid;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+}
+
+.note-box li .name {
+  font-size: 0.8em;
+}
+
+.note-box li img {
+  border-radius: 50%;
+  height: 36px;
+  width: 36px;
+  vertical-align: middle;
+}
+
+.note-box li .context {
+  display: block;
+  width: calc(100% - 40px);
+  margin-left: 40px;
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+.modal-trigger{
+  color: white;
+}
+
+@media only screen and (max-width: 992px) {
+  .chat-box .chat-create {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+  }
+}

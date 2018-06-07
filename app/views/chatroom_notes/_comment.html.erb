@@ -1,0 +1,14 @@
+<% if note.chatroom_note_comments.size > 0 %>
+<div class="card-action">
+  <ul class="note-box">
+    <% note.chatroom_note_comments.each do |comment| %>
+    <li>
+      <%= image_tag user_avatar(comment.user) %>
+      <span class="name"><%= comment.user.display_name %></span>
+      <samp class="time"><%= comment.simple_timestamp %></samp>
+      <samp class="context"><%= comment.content %></samp>
+    </li>
+    <% end %>
+  </ul>
+</div>
+<% end %>

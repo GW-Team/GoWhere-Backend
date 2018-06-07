@@ -1,32 +1,38 @@
-  <ul id="slide-out" class="sidenav">
-    <li>
-      <div class="user-view">
-        <div class="background">
-          <%= image_tag "office.jpg" %>
-        </div>
-        <a href="#user">
-          <%= image_tag "yuna.jpg" %>
-        </a>
-        <a href="#name">
-          <span class="white-text name"><%= current_user.display_name %></span>
-        </a>
-        <%= link_to "修改個人資料", edit_user_registration_path %>
+<ul id="slide-out" class="sidenav">
+  <li>
+    <div class="user-view">
+      <div class="background">
+        <%= image_tag "office.jpg" %>
       </div>
-    </li>
-    <li>
-      <a href="#!">
-        <i class="material-icons">directions_bus</i>First Link With Icon</a>
-    </li>
-    <li>
-      <a href="#!">Second Link</a>
-    </li>
-    <li>
-      <div class="divider"></div>
-    </li>
-    <li>
-      <a class="subheader">Subheader</a>
-    </li>
-    <li>
-      <%= link_to "登出", destroy_user_session_path, method: :delete %>
-    </li>
-  </ul>
+      <a href="#user">
+        <%= image_tag user_avatar(current_user), class: "circle" %>
+      </a>
+      <a href= "<%= user_path(current_user) %>">
+        <span class="white-text name"><%= current_user.display_name %></span>
+      </a>
+      <a href="<%= edit_user_registration_path %>" class="right">
+        <span class="white-text create">
+          <i class="material-icons">create</i>
+        </span>
+      </a>
+    </div>
+  </li>
+  <li>
+    <a href="#!">
+      <i class="material-icons">directions_bus</i>大眾交通</a>
+  </li>
+  <li>
+    <a href="#!">
+      <i class="material-icons">library_add</i>擴充功能</a>
+  </li>
+  <li>
+    <a href="#!">
+      <i class="material-icons">build</i>系統設定</a>
+  </li>
+  <li>
+    <div class="divider"></div>
+  </li>
+  <li>
+    <%= link_to "<i class=\"material-icons\">open_in_new</i>登出".html_safe, destroy_user_session_path, method: :delete, class: "waves-effect" %>
+  </li>
+</ul>

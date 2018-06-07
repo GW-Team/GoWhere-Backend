@@ -1,0 +1,16 @@
+<% get_chatrooms %>
+群組對話 <%= link_to  "新增", new_chatroom_path %>
+<ul class="user-list">
+  <% unless @groups.size > 0 %>
+    No Group
+  <% else %>
+    <%= render  "shared/chatroom", chatrooms: @groups %>
+  <% end %>
+</ul>好友列表
+<ul class="user-list">
+  <% unless @friends.size > 0 %>
+    No Friends
+  <% else %>
+    <%= render  "shared/chatroom", chatrooms: @friends %>
+  <% end %>
+</ul>

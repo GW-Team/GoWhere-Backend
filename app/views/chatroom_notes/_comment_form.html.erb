@@ -1,0 +1,8 @@
+<div class="chat-create">
+  <%= form_for comment, url: chatroom_note_comments_path(note_id: note.id, user_id: current_user.id) do |f| %>
+    <%= f.text_field :content %>
+    <button>
+      <i class="material-icons right">send</i>
+    </button>
+  <% end %>
+</div>

@@ -1,0 +1,13 @@
+<div class="col s12">
+    <ul class="user-list">
+      <% if @groups.size > 0 %>
+        <% @groups.each do |group| %>
+          <li>
+            <%= image_tag chatroom_avatar(group.chatroom) %>
+            <span><%= group.chatroom.name %></span>
+            <%= link_to "退出群組", group_path(group), method: "delete", data:{ confirm: "確定退出群組？"}, class: "waves-effect waves-light btn" %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>

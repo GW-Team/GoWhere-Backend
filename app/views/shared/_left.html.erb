@@ -1,26 +1,19 @@
-<% get_chatrooms %>
-<div>
-    <%= link_to "追蹤申請", who_wants_to_follow_me_follower_apply_forms_path, {class: "btn waves-effect waves-light"} %>
-    <%= link_to "好友申請", friend_apply_forms_path , {class: "btn waves-effect waves-light"} %>
-</div>
-<br>
-<div>
-  群組
-  <%= link_to  "新增", new_chatroom_path %>
-  <hr>
-  <% unless @groups.size > 0 %>
-    No Group
-  <% else %>
-    <%= render  "shared/chatroom", chatrooms: @groups %>
-  <% end %>
-</div>
-<br>
-<div>
-  好友
-  <hr>
-  <% unless @friends.size > 0 %>
-    No Friends
-  <% else %>
-    <%= render  "shared/chatroom", chatrooms: @friends %>
-  <% end %>
-</div>
+<a class="dropdown-trigger" href="#!" data-target="user-dropdown">
+  <%= image_tag user_avatar(current_user) %><%= current_user.display_name %>
+  <i class="material-icons right">arrow_drop_down</i>
+</a>
+<ul id="user-dropdown" class="dropdown-content">
+  <li>
+    <%= link_to  "好友列表", friends_path %>
+  </li>
+  <li>
+    <%= link_to  "群組列表", chatrooms_path %>
+  </li>
+  <li class="divider"></li>
+  <li>
+    <a href="#!">個人主頁</a>
+  </li>
+</ul>
+<%= link_to "<i class=\"material-icons right\">send</i>動態貼文".html_safe, news_feeds_path, {class: "btn waves-effect waves-light"} %>
+<%= link_to "<i class=\"material-icons right\">send</i>追蹤申請".html_safe, apply_for_following_path, {class: "btn waves-effect waves-light"} %>
+<%= link_to "<i class=\"material-icons right\">send</i>好友申請".html_safe, friend_apply_forms_path , {class: "btn waves-effect waves-light"} %>

@@ -1,39 +1,51 @@
-<% if user_signed_in? %>
-    <nav class="nav-style">
-      <div class="nav-wrapper">
-        <a href="#!" class="brand-logo">
-        <%= image_tag "logo.png" %>
+<nav>
+  <div class="nav-wrapper container">
+    <a href="/" class="brand-logo">
+      <%= image_tag "logo.png" %>GOWHERE
+    </a>
+    <ul class="right hide-on-med-and-down">
+      <li>
+        <a href="<%= users_path %>">
+          <i class="material-icons">search</i>
         </a>
-        <%= link_to "首頁", root_path %>
-        <ul class="right hide-on-med-and-down">
-        <li>
-        <%= form_tag users_path, method: "get" do %>
-            <%= text_field_tag :search, params[:search], placeholder: "搜尋使用者..." %>
-        <% end %>
-        </li>
-          <li>
-              <%= link_to "個人頁面", user_path(current_user) %>
-          </li>
-          <li>
-            <a href="collapsible.html">
-              <%= link_to "熱門景點", "#" %>
-            </a>
-          </li><li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
-          <li>
-            <a href="#" data-target="slide-out" class="sidenav-trigger">
-              <i class="material-icons">menu</i>
-            </a>
-          </li>
-        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class="material-icons">chat_bubble_outline</i>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="material-icons">perm_media</i>
+        </a>
+      </li>
+      <li>
         <a href="#" data-target="slide-out" class="sidenav-trigger">
           <i class="material-icons">menu</i>
         </a>
-      </div>
-    </nav>
-  <ul id="dropdown1" class="dropdown-content">
-    <li><a href="#!">one</a></li>
-    <li><a href="#!">two</a></li>
-    <li class="divider"></li>
-    <li><a href="#!">three</a></li>
-  </ul>
-<% end %>
+      </li>
+    </ul>
+    <ul class="mobile-bar">
+      <li>
+        <a href="<%= users_path %>">
+          <i class="material-icons">search</i>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="material-icons">chat_bubble_outline</i>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="material-icons">perm_media</i>
+        </a>
+      </li>
+      <li>
+        <a href="#" data-target="slide-out" class="sidenav-trigger">
+          <i class="material-icons">menu</i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

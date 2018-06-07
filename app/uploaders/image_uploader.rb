@@ -16,7 +16,7 @@ class ImageUploader < CarrierWave::Uploader::Base
     elsif model.class.to_s.underscore == "news_feed_photo"
       "uploads/User-#{model.news_feed.user_id}/#{model.class.to_s.underscore}"
     elsif model.class.to_s.underscore == "chatroom_photo"
-      "uploads/User-#{model.chatroom.user_id}/#{model.class.to_s.underscore}"
+      "uploads/User-#{model.chatroom.id}/#{model.class.to_s.underscore}"
     elsif model.class.to_s.underscore == "chatroom"
       "uploads/Chatroom-#{model.id}/Avatar"
     end
@@ -44,9 +44,9 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-  # def extension_whitelist
-  #   %w(jpg jpeg gif png)
-  # end
+  def extension_whitelist
+    %w(jpg jpeg gif png)
+  end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
