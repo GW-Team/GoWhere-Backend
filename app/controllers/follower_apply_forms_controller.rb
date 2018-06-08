@@ -12,7 +12,7 @@ class FollowerApplyFormsController < ApplicationController
 
   def update
     current_user.followers_follower.create! user_id: params[:id]
-    form.destroy
+    FollowerApplyForm.find_by(follower_id: current_user.id, user_id: params[:id]).destroy
     redirect_back fallback_location: root_path, notice: "成功接受！"
   end
 

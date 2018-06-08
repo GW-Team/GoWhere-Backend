@@ -7,6 +7,7 @@ ruby '2.4.1'
 gem 'devise'
 # File Upload
 gem 'carrierwave', '~> 1.0'
+gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 # Form build rapidly
 gem 'simple_form'
 # Bootstrap 4
