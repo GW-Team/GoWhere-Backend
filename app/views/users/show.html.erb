@@ -1,8 +1,69 @@
-<div>
-    <%= link_to "#{@follow_me_list.size} 位粉絲", follow_me_followers_path %>
-    <%= link_to "正在追蹤 #{@follow_whom_list.size} 人", follow_whom_followers_path %>
+<div class="user-title">
+    <%= image_tag user_avatar(@user) %>
+        <span>DogKing</span>
 </div>
-
-<div>
-    <%= current_user.display_name %>
+<div class="user-information">
+    <div class="row">
+        <div class="col s3">
+            <%= link_to  "#{@user.users_friend.size}<br>好友".html_safe, friends_path %>
+        </div>
+        <div class="col s3">
+            <%= link_to  "#{@user.news_feeds.size}<br>貼文".html_safe, news_feeds_path %>
+        </div>
+        <div class="col s3">
+            <%= link_to  "#{@user.followers_follower.size}<br>追蹤者".html_safe, follow_me_followers_path %>
+        </div>
+        <div class="col s3">
+            <%= link_to  "#{@user.favorites.size}<br>收藏".html_safe, "#" %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12" style="margin-bottom:1em;">
+            <%= simple_format(@user.description) %>
+        </div>
+    </div>
+</div>
+<div class="user-context">
+    <% if @user.news_feeds %>
+      <% @user.news_feeds.each do |news_feed| %>
+        <div class="card">
+            <div class="card-image">
+                <%= image_tag "aircraft.jpg" %>
+                <span class="card-title">
+                    <%= news_feed.title %>
+                </span>
+            </div>
+            <div class="card-content">
+                <p>
+                    <%= news_feed.description %>
+                </p>
+            </div>
+            <div class="card-action feed-footer">
+                <ul>
+                    <li>
+                        <a class="waves-effect" href="#">
+                            <i class="material-icons left">favorite_border</i>
+                            <%= news_feed.news_feed_likes.size %>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="waves-effect" href="#">
+                            <i class="material-icons">chat_bubble_outline</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="waves-effect" href="#">
+                            <i class="material-icons">place</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="waves-effect" href="#">
+                            <i class="material-icons">local_offer</i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+      <% end %>
+    <% end %>
 </div>

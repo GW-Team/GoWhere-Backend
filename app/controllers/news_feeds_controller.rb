@@ -2,7 +2,7 @@ class NewsFeedsController < ApplicationController
   before_action :find_news_feed, only: [:edit, :update, :destroy]
 
   def index
-    @news_feeds = NewsFeed.all
+    @news_feeds = NewsFeed.includes(:news_feed_likes).all
     @news_feed = NewsFeed.create()
   end
 
@@ -37,7 +37,7 @@ class NewsFeedsController < ApplicationController
 
   private
   def news_feed_params
-    params.require(:news_feed).permit(:description, :lat, :lng, :is_private)
+    params.require(:news_feed).permit(:description, :lat, :lng, :is_private, :title)
   end
 
   def find_news_feed

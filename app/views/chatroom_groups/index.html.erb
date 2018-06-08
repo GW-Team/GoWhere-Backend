@@ -1,6 +1,57 @@
 <h2>成員管理</h2>
 <%= link_to  "上一頁", chatroom_path(@chatroom) %>
 
+
+<div class="row">
+  <div class="col s12">
+    <div class="groups-title">
+      <h5>
+        <a href="#">
+          <%= image_tag chatroom_avatar(@chatroom) %>
+          <span><%= @chatroom.name %></span>
+        </a>
+      </h5>
+      <div class="right">
+        <a class=" modal-trigger waves-effect waves-light btn" href="<%= edit_chatroom_path(@chatroom) %>">
+          <i class="material-icons right">edit</i>修改
+        </a>
+        <div id="change-groups" class="modal">
+          <div class="modal-content">
+            <!-- --------------------- -->
+            <form class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">mode_edit</i>
+                <textarea id="title" class="materialize-textarea"></textarea>
+                <label for="title">Title</label>
+                <a class="waves-effect waves-light btn-small">
+                  <i class="material-icons right">image</i>Add</a>
+                </div>
+                <div class="modal-footer col s12">
+                  <a href="#!" class="modal-close waves-effect waves-green btn-flat">Delete</a>
+                  <a href="#!" class="modal-close waves-effect waves-green btn-flat">Add</a>
+                </div>
+              </form>
+            <!-- --------------------- -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col s12">
+    <ul class="user-list">
+      <% @chatroom.chatroom_groups.each do |group| %>
+        <li>
+          <%= image_tag user_avatar(group.user) %>
+          <span><%= group.user.list_name %></span>
+          <%= render  "quit_button", group: group %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<hr>
+
 <% if @friends.present? %>
   <table>
     <tr>
@@ -17,20 +68,3 @@
     <% end %>
   </table>
 <% end %>
-
-<hr>
-<h3>Member List</h3>
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-  </tr>
-  <% @chatroom.chatroom_groups.each do |group| %>
-    <tr>
-      <td><%= group.user.list_name %></td>
-      <td>
-        <%= render  "quit_button", group: group %>
-      </td>
-    </tr>
-  <% end %>
-</table>

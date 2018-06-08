@@ -1,5 +1,8 @@
 <% get_chatrooms %>
-群組對話 <%= link_to  "新增", new_chatroom_path %>
+群組對話
+<a data-target="add-groups" class="add-groups  modal-trigger" href="<%= new_chatroom_path %>">
+  <i class="material-icons right">add_circle</i>
+</a>
 <ul class="user-list">
   <% unless @groups.size > 0 %>
     No Group
