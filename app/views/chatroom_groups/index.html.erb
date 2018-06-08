@@ -12,11 +12,12 @@
         </a>
       </h5>
       <div class="right">
-        <a data-target="change-groups" class=" modal-trigger waves-effect waves-light btn">
+        <a class=" modal-trigger waves-effect waves-light btn" href="<%= edit_chatroom_path(@chatroom) %>">
           <i class="material-icons right">edit</i>修改
         </a>
         <div id="change-groups" class="modal">
           <div class="modal-content">
+            <!-- --------------------- -->
             <form class="row">
               <div class="input-field col s12">
                 <i class="material-icons prefix">mode_edit</i>
@@ -24,12 +25,13 @@
                 <label for="title">Title</label>
                 <a class="waves-effect waves-light btn-small">
                   <i class="material-icons right">image</i>Add</a>
-              </div>
-              <div class="modal-footer col s12">
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Delete</a>
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Add</a>
-              </div>
-            </form>
+                </div>
+                <div class="modal-footer col s12">
+                  <a href="#!" class="modal-close waves-effect waves-green btn-flat">Delete</a>
+                  <a href="#!" class="modal-close waves-effect waves-green btn-flat">Add</a>
+                </div>
+              </form>
+            <!-- --------------------- -->
           </div>
         </div>
       </div>
