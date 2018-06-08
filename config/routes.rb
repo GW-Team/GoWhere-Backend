@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # ----------------------------
   # Web Mode
   devise_for :users, controllers: { registrations: "registrations" }
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show, :edit, :update]
   resources :friend_apply_forms, only: [:index, :create, :destroy]
   resources :friends, only: [:index, :create, :destroy]
   resources :chatrooms, except: [:destroy] do
