@@ -21,7 +21,7 @@ module ApplicationHelper
     if user.avatar.file.nil?
       "default_avatar.png"
     else
-      user.avatar.url
+      user.avatar.thumb.url
     end
   end
 
@@ -29,7 +29,7 @@ module ApplicationHelper
     if chatroom.picture.file.nil?
       "default_group.png"
     else
-      chatroom.picture.url
+      chatroom.picture.thumb.url
     end
   end
 
