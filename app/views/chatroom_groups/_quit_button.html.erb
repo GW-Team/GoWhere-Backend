@@ -1,9 +1,9 @@
 <% if @chatroom.admins.index(current_user.id) %>
   <% if group.user_id == current_user.id %>
-    <%= button_to "退出", group_path(group), method: :delete, data:{ confirm: "確定退出群組嗎？"} %>
+    <%= link_to "退出", group_path(group), method: :delete, data:{ confirm: "確定退出群組嗎？"}, class: "waves-effect waves-light btn" %>
   <% else %>
-    <%= button_to "移除", group_path(group), method: :delete, data:{ confirm: "確定將 #{group.user.display_name} 退出群組嗎？"} %>
+    <%= link_to "移除", group_path(group), method: :delete, data:{ confirm: "確定將 #{group.user.display_name} 退出群組嗎？"}, class: "waves-effect waves-light btn" %>
   <% end %>
 <% elsif can? :update, group %>
-  <%= button_to "退出", group_path(group), method: :delete, data:{ confirm: "確定退出群組嗎？"} %>
+  <%= link_to "退出", group_path(group), method: :delete, data:{ confirm: "確定退出群組嗎？"}, class: "waves-effect waves-light btn" %>
 <% end %>
