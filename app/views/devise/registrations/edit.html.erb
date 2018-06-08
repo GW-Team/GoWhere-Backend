@@ -7,14 +7,7 @@
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
   <% end %>
-  <div class="row">
-    <div class="col m6">
-      <%= f.input :password, label: "密碼", autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-    </div>
-    <div class="col m6">
-      <%= f.input :password_confirmation, label: "密碼確認", required: false %>
-    </div>
-  </div>
+  <%= f.label :password, "密碼" %> <%= link_to  "修改", edit_user_path(current_user) %>
   <%= f.input :avatar, label: "頭像" %>
   <%= f.input :gender, label: "性別", collection: [['男生', 1], ['女生', 2], ['不顯示', 3]], include_blank: "Please select" %>
   <%= f.input :phone, label: "電話號碼" %>
@@ -22,7 +15,6 @@
   <%= f.input :first_name, label: "姓(first_name)" %>
   <%= f.input :last_name, label: "名(last_name)" %>
   <%= f.input :is_public, label: "設為公開帳號", collection: [['公開', true], ['不公開', false]], include_blank: "Please select" %>
-  <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
   <%= f.button :submit, "更新", data: { disable_with: "更新中..." } %>
 <% end %>
 

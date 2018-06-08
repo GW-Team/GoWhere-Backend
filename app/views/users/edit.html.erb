@@ -1,0 +1,15 @@
+<%= simple_form_for current_user do |f| %>
+  <%= f.input :email, label: "帳號", readonly: true %>
+  <div class="row">
+    <div class="col m4">
+      <%= f.input :current_password, label: "舊密碼", autocomplete: "off", required: false %>
+    </div>
+    <div class="col m4">
+      <%= f.input :password, label: "新密碼", autocomplete: "off", required: false %>
+    </div>
+    <div class="col m4">
+      <%= f.input :password_confirmation, label: "新密碼再次確認", required: false %>
+    </div>
+  </div>
+  <%= f.submit "送出" %>
+<% end %>
