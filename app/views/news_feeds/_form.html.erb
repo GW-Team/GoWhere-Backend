@@ -1,4 +1,31 @@
-<%= simple_form_for news_feed, class: "col s12" do |f| %>
-  <%= f.input :description, label: "內容", placeholder: "撰寫貼文...", input_html: {id: "icon_prefix2", class: "materialize-textarea"} %>
-  <%= f.button :submit, "送出", data: { disable_with: "處理中..." },class: "btn waves-light" %>
-<% end %>
+<div class="col s12 m12">
+  <div class="right">
+    <a data-target="add-news-feed" class=" modal-trigger waves-effect waves-light btn">
+      <i class="material-icons right">create</i>新增貼文
+    </a>
+    <div id="add-news-feed" class="modal">
+      <div class="modal-content">
+        <!-- ----------------------- -->
+        <%= form_for news_feed, class: "row" do |f| %>
+          <div class="input-field col s12">
+            <i class="material-icons prefix">mode_edit</i>
+            <%= f.text_area :title, id: "title", class: "materialize-textarea" %>
+            <label for="title">Title</label>
+          </div>
+          <div class="input-field col s12">
+            <i class="material-icons prefix">mode_edit</i>
+            <%= f.text_area :description, id: "message", class: "materialize-textarea" %>
+            <label for="message">Message</label>
+            <a class="waves-effect waves-light btn-small">
+              <i class="material-icons right">image</i>Add
+            </a>
+          </div>
+          <div class="modal-footer col s12">
+            <%= f.submit "新增", data: { disable_with: "處理中..." },class: "modal-close waves-effect waves-green btn-flat" %>
+          </div>
+        <% end %>
+        <!-- ----------------------- -->
+      </div>
+    </div>
+  </div>
+</div>

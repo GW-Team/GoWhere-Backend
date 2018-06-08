@@ -28,6 +28,7 @@ section .container .left-bar a img {
   border-radius: 50%;
   margin-right: 2px;
   height: 42px;
+  width: 42px;
   vertical-align: middle;
 }
 
@@ -59,7 +60,7 @@ section .container .left-bar a.waves-effect i {
   width: 36px;
   border-radius: 50%;
   vertical-align: middle;
-  background: #FFFFFF;
+  background-color: #FFFFFF;
 }
 
 .chat-box .chat-title>span {
@@ -188,6 +189,7 @@ ul.chat-list li .box {
 }
 
 .user-list li {
+  border-radius: 1em;
   margin-bottom: 0.2em;
   margin-top: 0.2em;
   padding: 0.5em;
@@ -273,9 +275,6 @@ ul.chat-list li .box {
   font-size: 0.9em;
   opacity: 0.8;
 }
-.modal-trigger{
-  color: white;
-}
 
 @media only screen and (max-width: 992px) {
   .chat-box .chat-create {
@@ -284,4 +283,126 @@ ul.chat-list li .box {
     left: 0;
     bottom: 0;
   }
+}
+
+.user-title {
+  text-align: center;
+  padding-top: 2em;
+  width: 100%;
+  background: url('../images/office.jpg');
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #FFFFFF;
+}
+
+.user-title span {
+  padding: 1em 0;
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.01) 0%, rgba(0, 0, 0, 0.01) 2%, rgba(0, 0, 0, 0.01) 6%, rgba(0, 0, 0, 0.65) 86%, rgba(0, 0, 0, 0.65) 99%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.01) 0%, rgba(0, 0, 0, 0.01) 2%, rgba(0, 0, 0, 0.01) 6%, rgba(0, 0, 0, 0.65) 86%, rgba(0, 0, 0, 0.65) 99%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.01) 0%, rgba(0, 0, 0, 0.01) 2%, rgba(0, 0, 0, 0.01) 6%, rgba(0, 0, 0, 0.65) 86%, rgba(0, 0, 0, 0.65) 99%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#03000000', endColorstr='#a6000000', GradientType=0);
+  /* IE6-9 */
+}
+
+.user-title img {
+  border-radius: 50%;
+  height: 128px;
+  width: 128px;
+  display: block;
+  margin: auto;
+}
+
+.user-title span {
+  display: block;
+  width: 100%;
+  font-size: 1.5em;
+  margin-top: 0.5em;
+}
+
+.user-information .s3 {
+  text-align: center;
+  padding: 1em;
+}
+
+.user-information .row {
+  border-bottom: 1px solid #c9c9c9;
+}
+
+.modal-content .row {
+  margin-bottom: 0px;
+}
+
+.m12 .right>a {
+  margin-bottom: 1em;
+}
+
+.feed-footer {
+  text-align: center;
+}
+
+.feed-footer ul {
+  margin: 0;
+}
+
+.feed-footer li {
+  display: inline-block;
+  position: relative;
+  width: 24%;
+}
+
+.feed-footer li a {
+  width: 100%;
+  padding: 0.2em 0;
+}
+
+.feed-footer li a span {
+  display: inline-block;
+}
+
+.card .card-action .active {
+  color: #00A99D !important;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
+  color: #00A99D;
+}
+
+.feed-footer i {
+  margin: 0;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+  margin: 0;
+  color: #c9c9c9;
+}
+
+.groups-title {
+  margin-top: 1em;
+}
+
+.groups-title h5 {
+  display: inline-block;
+  margin: 0;
+}
+
+.groups-title h5 img {
+  height: 42px;
+  width: 42px;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+
+.card-content .dropdown-trigger {
+  display: block;
+  float: right;
+  color: #00A99D;
+}
+
+.add-groups {
+  color: #00A99D;
 }

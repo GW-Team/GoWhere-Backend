@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   end
   
   def show
+    @user = User.includes(:users_friend, :followers_follower, :favorites, news_feeds: [:news_feed_photos, :news_feed_likes]).find_by(id: params[:id])
   end
 
   def edit
