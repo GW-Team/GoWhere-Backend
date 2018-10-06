@@ -47,7 +47,6 @@ bower.json
 # Ignore node_modules
 node_modules/
 
-Gemfile.lock
-db/schema.rb
 config/email.yml
+config/database.yml
 public/uploads/*
