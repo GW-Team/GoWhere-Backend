@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  username: <%= ENV['DB_ACCOUNT'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+
+development:
+  <<: *default
+  database: go_where_development
+
+test:
+  <<: *default
+  database: go_where_test
+
+staging:
+  <<: *default
+  database: go_where_staging
+
+production:
+  <<: *default
+database: go_where_production
