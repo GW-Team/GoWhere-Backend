@@ -1,24 +1,13 @@
-# README
+# GoWhere
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting Start
+1. Step 1： Copy config & Update config
+> `$ cp config/database.yml.example config/database.yml` 
 
-Things you may want to cover:
+> `$ cp config/email.yml.example config/email.yml`
 
-* Ruby version
+2. Step 2： Setup db
+> `$ rails db:create db:migrate`
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+3. Step 3： Run Server
+> `$ rails s`
