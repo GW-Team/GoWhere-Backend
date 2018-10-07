@@ -29,7 +29,7 @@ class ApiV1::UsersController < ApiController
 
   def forgot_password
     user = User.find_by_email(params['email'].downcase)
-    User.reset_password(user)
+    user.reset_password
     return_msg({message: "請至信箱收信"}, 200)
   end
 

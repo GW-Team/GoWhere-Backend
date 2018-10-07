@@ -49,13 +49,13 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'pg', '~> 0.18'
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+group :test do
+  gem 'shoulda-matchers', '4.0.0.rc1'
+  gem 'rails-controller-testing' # If you are using Rails 5.x
   gem 'rspec-rails', '~> 3.7'
   gem 'faker', '~> 1.9', '>= 1.9.1'
   gem 'capybara', '~> 3.3', '>= 3.3.1'
-  gem 'factory_bot', '~> 4.11', '>= 4.11.1'
+  gem 'factory_bot_rails', '~> 4.11', '>= 4.11.1'
 end
 
 group :development do
@@ -65,6 +65,11 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 

@@ -28,11 +28,11 @@ class User < ApplicationRecord
   validates :first_name, :last_name, presence: true
 
 
-  def self.reset_password(user)
-    base64 = Base64.encode64(user.email + Time.now().to_s + Devise.friendly_token())
+  def reset_password
+    base64 = Base64.encode64(email + Time.now().to_s + Devise.friendly_token())
     key = base64[0..7]
-    user.update(password: key)
-    UserMailer.send_forgot_password_email(user.email, key).deliver_now!
+    update(password: key)
+    UserMailer.send_forgot_password_email(email, key).deliver_now!
   end
 
   def display_name
