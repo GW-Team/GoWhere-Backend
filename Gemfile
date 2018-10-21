@@ -48,6 +48,7 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'pg', '~> 0.18'
+gem "appengine", "~> 0.4.1"
 
 group :test do
   gem 'shoulda-matchers', '4.0.0.rc1'
