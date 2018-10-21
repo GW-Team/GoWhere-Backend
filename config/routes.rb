@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'map_directions', to: 'maps#index'
   get 'chatroom_note_comments/create'
   get 'chatroom_photos/create'
   get 'chatroom_photos/destroy'
@@ -24,7 +25,7 @@ Rails.application.routes.draw do
     end
   end
 
-  
+
   resources :follower_apply_forms, only: [:create, :update, :destroy] do
     collection do
       get :i_want_to_follow_whom
@@ -70,7 +71,6 @@ Rails.application.routes.draw do
           post :follow_whom
           post :follow_me
       end
-
     end
 
   end
