@@ -1,6 +1,6 @@
 <div class="user-title">
     <%= image_tag user_avatar(@user) %>
-        <span>DogKing</span>
+        <span><%= find_fullname(current_user.id) %></span>
 </div>
 <div class="user-information">
     <div class="row">

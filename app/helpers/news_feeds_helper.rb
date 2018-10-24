@@ -15,6 +15,10 @@ module NewsFeedsHelper
     end
   end
 
+  def comment(id, news_feed)
+    link_to "<span><i class=\"material-icons left\">chat_bubble_outline</i>#{news_feed.news_feed_comments.size}</span>".html_safe, news_feed_comments_path(id), class: "waves-effect"
+  end
+
   def news_feed_photo(news_feed)
     if news_feed.news_feed_photos
       news_feed.news_feed_photos.first.path.url
