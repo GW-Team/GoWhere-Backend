@@ -1,11 +1,8 @@
-# require "#{Rails.root}/app/services/motc_service"
-# require "#{Rails.root}/app/models/scenic_spot"
-
 namespace :motc do
 	desc "建立觀光景點資料"
   task :scenic_spot_init => :environment do
-    app_id = ENV['gtx_l2_id']
-    app_key = ENV['gtx_l2_key']
+    app_id = ENV['MOTC_L2_ID']
+    app_key = ENV['MOTC_L2_KEY']
     motc = MotcService.new(app_id, app_key)
 
     top = 30
