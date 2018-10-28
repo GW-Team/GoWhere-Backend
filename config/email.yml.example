@@ -3,8 +3,8 @@ default: &default
   port: 587
   domain: "gmail.com"
   authentication: "plain"
-  user_name: <%= ENV['SEMINAR_MAIL_ACCOUNT'] %>
-  password: <%= ENV['SEMINAR_MAIL_PASSWORD'] %>
+  user_name: <%= ENV['MAIL_ACCOUNT'] %>
+  password: <%= ENV['MAIL_PASSWORD'] %>
   enable_starttls_auto: true
 development:
   <<: *default
