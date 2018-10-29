@@ -9,6 +9,9 @@ class ChatroomChannel < ApplicationCable::Channel
 
   def chat(data)
     user = User.find_by(identifier: data['user'])
-    user.chatroom_messages.create(chatroom_id: data['chatroom_id'], message_type: data['message_type'], content: data['message'])
+    message = data['message']
+    type = (message.index 'youtu') ? 3 : data['message_type']
+    content = message.split('/').last.sub('watch?v=', '')
+    user.chatroom_messages.create(chatroom_id: data['chatroom_id'], message_type: type, content: content)
   end
 end
