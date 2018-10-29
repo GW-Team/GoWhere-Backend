@@ -1,0 +1,14 @@
+<div class="col s12">
+  <ul>
+    <% @chat_templates.each do |chat_template| %>
+      <li>
+        <%= chat_template.content %>
+        <%= link_to "編輯", edit_chat_template_path(chat_template) %>
+        <%= link_to "刪除", chat_template_path(chat_template), method: :delete %>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= link_to "新增", new_chat_template_path %>
+  
+  </div>

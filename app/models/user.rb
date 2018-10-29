@@ -22,7 +22,8 @@ class User < ApplicationRecord
   has_many :chatroom_groups, dependent: :destroy
   has_many :activity_participants, dependent: :destroy
   has_many :activity_comments, dependent: :destroy
-  
+  has_many :chat_templates, dependent: :destroy
+
   mount_uploader :avatar, ImageUploader
 
   validates :first_name, :last_name, presence: true
@@ -36,7 +37,7 @@ class User < ApplicationRecord
   end
 
   def display_name
-    return nickname if nickname.present? 
+    return nickname if nickname.present?
     return "#{first_name} #{last_name}" if first_name.present? && last_name.present?
     email.split('@').first
   end

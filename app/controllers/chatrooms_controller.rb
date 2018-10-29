@@ -33,8 +33,9 @@ class ChatroomsController < ApplicationController
 
   def show
     @photo = @chatroom.chatroom_photos.new
+    @chat_templates = current_user.chat_templates.all
   end
-  
+
   def destroy
     puts "\n\n#{params}\n\n"
     redirect_to chatrooms_path

@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   end
   resources :chatroom_note_comments, only: [:create], shallow: true
 
+  resources :chat_templates, except: [:show]
+
   resources :followers, only: [:destroy] do
     collection do
       get :follow_whom
