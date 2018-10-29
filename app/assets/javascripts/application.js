@@ -16,6 +16,14 @@
 //= require materialize
 //= require_tree .
 
+function chatTemplate(element) {
+  var elements = Array.prototype.slice.call( document.getElementsByClassName('template'), 0 );
+  var index = elements.indexOf(event.currentTarget);
+  var template = document.querySelectorAll('.template');
+  var template_input = document.getElementById('message_body');
+  template_input.value = template[index].value;
+}
+
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
     mapTypeControl: false,
@@ -109,6 +117,10 @@ $(document).ready(function () {
   $('.sidenav').sidenav();
   $(".dropdown-trigger").dropdown();
   $('.fixed-action-btn').floatingActionButton();
+  $('.fixed-action-btn-inside').floatingActionButton({
+    direction: 'left',
+    hoverEnabled: false
+  });
   $('.modal').modal();
 
   const notice = document.getElementById("notice");
@@ -116,3 +128,7 @@ $(document).ready(function () {
     M.toast({html: notice.innerHTML});
   }
 });
+
+window.onload = function(){
+  chatTemplate();
+}

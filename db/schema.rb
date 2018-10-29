@@ -46,6 +46,14 @@ ActiveRecord::Schema.define(version: 2018_10_29_063126) do
     t.index ["user_id"], name: "index_activity_participants_on_user_id"
   end
 
+  create_table "chat_templates", force: :cascade do |t|
+    t.string "content"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_chat_templates_on_user_id"
+  end
+
   create_table "chatroom_groups", force: :cascade do |t|
     t.bigint "chatroom_id"
     t.bigint "user_id"
@@ -258,6 +266,7 @@ ActiveRecord::Schema.define(version: 2018_10_29_063126) do
   add_foreign_key "activity_comments", "users"
   add_foreign_key "activity_participants", "activities"
   add_foreign_key "activity_participants", "users"
+  add_foreign_key "chat_templates", "users"
   add_foreign_key "chatroom_groups", "chatrooms"
   add_foreign_key "chatroom_groups", "users"
   add_foreign_key "chatroom_messages", "chatrooms"
