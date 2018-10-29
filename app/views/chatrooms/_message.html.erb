@@ -9,7 +9,18 @@
     <% if message.message_type == 1 %>
       <span class="box"><%= message.content %></span>
     <% elsif message.message_type == 2 %>
-      <%= image_tag find_photo(message) %>
+    <%= image_tag find_photo(message) %>
+    <% elsif message.message_type == 3 %>
+        <!-- <iframe width="300" 
+                height="150"
+                src="<%= message.content %>" 
+                frameborder="0" 
+                allow="autoplay; encrypted-media" 
+                allowfullscreen
+        >
+        </iframe> -->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/a8iYIRX4XRA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <%= message.content %>
     <% elsif message.message_type == 4 %>
       <div class="card hoverable">
         <div class="card-content">
