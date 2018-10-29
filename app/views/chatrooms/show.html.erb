@@ -38,24 +38,7 @@
           </a>
           <ul>
             <li>
-              <a class="btn-floating red">
-                <i class="material-icons">insert_chart</i>
-              </a>
-            </li>
-            <li>
-              <a class="btn-floating yellow darken-1">
-                <i class="material-icons">format_quote</i>
-              </a>
-            </li>
-            <li>
-              <a class="btn-floating green">
-                <i class="material-icons">publish</i>
-              </a>
-            </li>
-            <li>
-              <a class="btn-floating blue">
-                <i class="material-icons">attach_file</i>
-              </a>
+              <%= link_use_i_tag("format_quote", chat_templates_path, :get, "btn-floating yellow darken-1") %>
             </li>
           </ul>
         </div>
@@ -66,4 +49,19 @@
         </button>
       <% end %>
     </div>
+
+    <% if @chat_templates.size > 0 %>
+      <div class="chat-template">
+        <ul>
+          常用語詞：
+          <% @chat_templates.each do |chat_template| %>
+            <li>
+              <button class="template" onclick="chatTemplate()" value="<%= chat_template.content %>">
+                <%= chat_template.content %>
+              </button>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
   </div>
