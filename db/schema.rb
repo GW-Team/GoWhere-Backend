@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_08_024733) do
+ActiveRecord::Schema.define(version: 2018_10_29_063126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -243,6 +243,9 @@ ActiveRecord::Schema.define(version: 2018_06_08_024733) do
     t.datetime "authentication_token_time"
     t.string "refresh_token"
     t.datetime "refresh_token_time"
+    t.time "notification_start_at"
+    t.time "notification_end_at"
+    t.string "canned_message"
     t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["identifier"], name: "index_users_on_identifier", unique: true
