@@ -49,5 +49,6 @@ node_modules/
 
 config/email.yml
 config/database.yml
+config/settings/application.yml
 public/uploads/*
 app.yaml

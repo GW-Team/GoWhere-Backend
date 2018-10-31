@@ -1,0 +1,6 @@
+<%= link_to  "上一頁", redirect_to %>
+<hr>
+<%= simple_form_for chat_template do |f| %>
+  <%= f.input :content, label: "樣板內容" %>
+  <%= f.submit "送出" %>
+<% end %>

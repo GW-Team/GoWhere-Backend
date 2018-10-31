@@ -15,6 +15,15 @@
   <%= f.input :first_name, label: "姓(first_name)" %>
   <%= f.input :last_name, label: "名(last_name)" %>
   <%= f.input :is_public, label: "設為公開帳號", collection: [['公開', true], ['不公開', false]], include_blank: "Please select" %>
+  <div>
+    <%= f.label :notification_start_at, "勿擾模式設定"%>
+    <br>
+    <%= f.time_select :notification_start_at, {minute_step: 15}, class: "notification_time form-control" %>
+    <br>
+    <%= f.time_select :notification_end_at, {minute_step: 15}, class: "notification_time" %>
+    <br>
+    <%= f.input :canned_message, label: "罐頭訊息" %>
+  </div>
   <%= f.button :submit, "更新", data: { disable_with: "更新中..." } %>
 <% end %>
 
