@@ -6,7 +6,7 @@
   <% @news_feeds.each do |news_feed| %>
     <div class="card">
       <div class="card-image">
-        <%= image_tag "aircraft.jpg" %>
+        <%= image_tag news_feed_picture(news_feed) %>
         <span class="card-title">
           <%= news_feed.title %>
         </span>
@@ -30,18 +30,6 @@
         <ul>
           <li><%= like_or_unlike(news_feed.id, news_feed) %></li>
           <li><%= comment(news_feed.id, news_feed) %></li>
-
-          <li>
-            <a class="waves-effect" href="#">
-              <i class="material-icons">place</i>
-            </a>
-          </li>
-
-          <li>
-            <a class="waves-effect" href="#">
-              <i class="material-icons">local_offer</i>
-            </a>
-          </li>
         </ul>
       </div>
     </div>

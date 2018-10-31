@@ -16,9 +16,7 @@
             <i class="material-icons prefix">mode_edit</i>
             <%= f.text_area :description, id: "message", class: "materialize-textarea" %>
             <label for="message">Message</label>
-            <a class="waves-effect waves-light btn-small">
-              <i class="material-icons right">image</i>Add
-            </a>
+            <%= f.file_field :picture, id: "picture", class: "materialize-textarea" %>
           </div>
           <div class="modal-footer col s12">
             <%= f.submit "新增", data: { disable_with: "處理中..." },class: "modal-close waves-effect waves-green btn-flat" %>

@@ -37,7 +37,7 @@ class NewsFeedsController < ApplicationController
 
   private
   def news_feed_params
-    params.require(:news_feed).permit(:description, :lat, :lng, :is_private, :title)
+    params.require(:news_feed).permit(:description, :lat, :lng, :is_private, :title, :picture)
   end
 
   def find_news_feed

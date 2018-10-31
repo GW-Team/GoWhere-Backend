@@ -2,5 +2,6 @@
 <%= simple_form_for @news_feed, class: "row" do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
+  <%= f.input :picture %>
   <%= f.submit "送出", data: { disable_with: "處理中..." } %>
 <% end %>
