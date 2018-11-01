@@ -196,6 +196,7 @@ ActiveRecord::Schema.define(version: 2018_10_29_063126) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
+    t.string "picture"
     t.index ["user_id"], name: "index_news_feeds_on_user_id"
   end
 

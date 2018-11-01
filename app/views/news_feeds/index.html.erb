@@ -4,51 +4,34 @@
   <hr/>
   <br/>
   <% @news_feeds.each do |news_feed| %>
-        <div class="card">
-            <div class="card-image">
-                <%= image_tag "aircraft.jpg" %>
-                <span class="card-title">
-                    <%= news_feed.title %>
-                </span>
-            </div>
-            <div class="card-content">
-              <a class="dropdown-trigger" href="#!" data-target="chat-dropdown">
-                <i class="material-icons right">more_vert</i>
-              </a>
-              <ul id="chat-dropdown" class="dropdown-content">
-                <li>
-                  <%= link_to "編輯", edit_news_feed_path(news_feed.id) %>
-                </li>
-                <li>
-                    <%= link_to "刪除", news_feed_path(news_feed.id), method: :delete, data: {confirm: "確定要刪除？"} %>
-                </li>
-              </ul>
-              <p>
-                  <%= news_feed.description %>
-              </p>
-            </div>
-            <div class="card-action feed-footer">
-                <ul>
-                    <li>
-                      <%= like_or_unlike(news_feed.id, news_feed) %>
-                    </li>
-                    <li>
-                        <a class="waves-effect" href="#">
-                            <i class="material-icons">chat_bubble_outline</i>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="waves-effect" href="#">
-                            <i class="material-icons">place</i>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="waves-effect" href="#">
-                            <i class="material-icons">local_offer</i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-      <% end %>
+    <div class="card">
+      <div class="card-image">
+        <%= image_tag news_feed_picture(news_feed) %>
+        <span class="card-title">
+          <%= news_feed.title %>
+        </span>
+      </div>
+
+      <div class="card-content">
+        <% if can? :manage, news_feed %>
+          <a class="dropdown-trigger" href="#!" data-target="chat-dropdown">
+            <i class="material-icons right">more_vert</i>
+          </a>
+          <ul id="chat-dropdown" class="dropdown-content">
+            <li><%= link_to "編輯", edit_news_feed_path(news_feed.id) %></li>
+            <li><%= link_to "刪除", news_feed_path(news_feed.id), method: :delete, data: {confirm: "確定要刪除？"} %></li>
+          </ul>
+        <% end %>
+
+        <p><%= find_fullname(news_feed.user) %>說：<%= news_feed.description %></p>
+      </div>
+
+      <div class="card-action feed-footer">
+        <ul>
+          <li><%= like_or_unlike(news_feed.id, news_feed) %></li>
+          <li><%= comment(news_feed.id, news_feed) %></li>
+        </ul>
+      </div>
+    </div>
+  <% end %>
 </div>

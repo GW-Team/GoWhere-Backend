@@ -13,8 +13,8 @@ class ImageUploader < CarrierWave::Uploader::Base
     if model.class.to_s.underscore == "user"
       puts "uploads/User-#{model.id}/#{model.class.to_s.underscore}"
       "uploads/User-#{model.id}/#{model.class.to_s.underscore}"
-    elsif model.class.to_s.underscore == "news_feed_photo"
-      "uploads/User-#{model.news_feed.user_id}/#{model.class.to_s.underscore}"
+    elsif model.class.to_s.underscore == "news_feed"
+      "uploads/NewsFeed-#{model.id}/#{model.class.to_s.underscore}"
     elsif model.class.to_s.underscore == "chatroom_photo"
       "uploads/User-#{model.chatroom.id}/#{model.class.to_s.underscore}"
     elsif model.class.to_s.underscore == "chatroom"
@@ -40,6 +40,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Create different versions of your uploaded files:
   version :thumb do
     process resize_to_fill: [128, 128]
+  end
+
+  version :resize do
+    process resize_to_fill: [500, 500]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

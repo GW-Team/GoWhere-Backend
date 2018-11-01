@@ -33,7 +33,15 @@ module ApplicationHelper
     end
   end
 
-  def link_use_i_tag(icon_name, link, use_method, class_type)
-    link_to content_tag(:i, icon_name, :class => "material-icons"), link, method: use_method, class: class_type
+  def news_feed_picture(news_feed)
+  (news_feed.picture.file.nil?) ? "aircraft.jpg" : news_feed.picture.resize.url 
+      "aircraft.jpg"
+    else
+      news_feed.picture.resize.url
+    end
+  end
+
+  def link_use_i_tag(icon_name, link, use_method, class_name)
+    link_to content_tag(:i, icon_name, :class => "material-icons"), link, method: use_method, class: class_name
   end
 end
