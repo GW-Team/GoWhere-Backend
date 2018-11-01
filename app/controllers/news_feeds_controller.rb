@@ -2,8 +2,9 @@ class NewsFeedsController < ApplicationController
   before_action :find_news_feed, only: [:edit, :update, :destroy]
 
   def index
-    current_user.users_follower.map do |follower|
-      @user_follow_id = follower.follower_id
+    @user_follow_id = []
+    @user_follow_id << current_user.users_follower.map do |follower|
+      follower.follower_id
     end
     @news_feeds = NewsFeed.where(user_id: @user_follow_id).includes(:news_feed_likes)
     @news_feed = NewsFeed.create()
