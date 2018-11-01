@@ -34,7 +34,7 @@ module ApplicationHelper
   end
 
   def news_feed_picture(news_feed)
-    if news_feed.picture.file.nil?
+  (news_feed.picture.file.nil?) ? "aircraft.jpg" : news_feed.picture.resize.url 
       "aircraft.jpg"
     else
       news_feed.picture.resize.url
