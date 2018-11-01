@@ -23,7 +23,7 @@
           </ul>
         <% end %>
 
-        <p><%= news_feed.description %></p>
+        <p><%= find_fullname(news_feed.user) %>說：<%= news_feed.description %></p>
       </div>
 
       <div class="card-action feed-footer">

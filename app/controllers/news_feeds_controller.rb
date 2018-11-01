@@ -2,7 +2,10 @@ class NewsFeedsController < ApplicationController
   before_action :find_news_feed, only: [:edit, :update, :destroy]
 
   def index
-    @news_feeds = NewsFeed.includes(:news_feed_likes).all
+    current_user.users_follower.map do |follower|
+      @user_follow_id = follower.follower_id
+    end
+    @news_feeds = NewsFeed.where(user_id: @user_follow_id).includes(:news_feed_likes)
     @news_feed = NewsFeed.create()
   end
 
@@ -32,7 +35,7 @@ class NewsFeedsController < ApplicationController
   def destroy
     authorize! :manage, @news_feed
 
-    redirect_to root_path, notice: "刪除成功" if @news_feed.destroy
+    redirect_back fallback_location: root_path, notice: "刪除成功" if @news_feed.destroy
   end
 
   private

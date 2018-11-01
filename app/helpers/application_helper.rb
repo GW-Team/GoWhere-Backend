@@ -41,7 +41,7 @@ module ApplicationHelper
     end
   end
 
-  def link_use_i_tag(icon_name, link, use_method)
-    link_to content_tag(:i, icon_name, :class => "material-icons"), link, method: use_method
+  def link_use_i_tag(icon_name, link, use_method, class_name)
+    link_to content_tag(:i, icon_name, :class => "material-icons"), link, method: use_method, class: class_name
   end
 end
