@@ -2,7 +2,7 @@ class NewsFeedsController < ApplicationController
   before_action :find_news_feed, only: [:edit, :update, :destroy]
 
   def index
-    @user_follow_id = []
+   @user_follow_id = current_user.users_follower.map{ |follower| follower.follower_id }
     @user_follow_id << current_user.users_follower.map do |follower|
       follower.follower_id
     end
