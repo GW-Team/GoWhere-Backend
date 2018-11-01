@@ -34,11 +34,7 @@ module ApplicationHelper
   end
 
   def news_feed_picture(news_feed)
-  (news_feed.picture.file.nil?) ? "aircraft.jpg" : news_feed.picture.resize.url 
-      "aircraft.jpg"
-    else
-      news_feed.picture.resize.url
-    end
+    (news_feed.picture.file.nil?) ? "aircraft.jpg" : news_feed.picture.resize.url 
   end
 
   def link_use_i_tag(icon_name, link, use_method, class_name)
